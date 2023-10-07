@@ -1,0 +1,14 @@
+#Header1{
+    margin-right:3rem
+}
+#navbar{
+    background-color: black;
+    color: white;
+}
+.Header2{
+    color: white;
+    background-color: black;
+}
+.slideout-overlay .gp-icon.pro-close, .slideout-navigation .dropdown-menu-toggle {
+    color: 'white';
+}

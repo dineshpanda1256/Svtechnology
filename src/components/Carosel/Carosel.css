@@ -1,0 +1,9 @@
+#carosel1{
+    height: 65vh;
+}
+
+@media only screen and (max-width: 600px) {
+    #carosel1{
+        height: 30vh;
+    }
+  }
