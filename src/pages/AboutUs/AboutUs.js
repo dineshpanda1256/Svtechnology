@@ -3,24 +3,29 @@ import "./AboutUs.css";
 import { ReactComponent as ReactLogo } from "../../assets/image/about/header.svg";
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import { DriverController } from "../../redux/controllers/DriverController";
+import Loader from "../../components/Loader/Loader";
 
 export default function AboutUs() {
   useEffect(()=>{
     getAboutUs()
+      window.scrollTo(0,0);
   },[])
 
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getAboutUs = () => {
       DriverController.getAboutUs()
       .then((res)=>{
           console.log(res.data)
           setData(res.data)
+          setLoading(false)
       })
   }
 
   return (
     <>
+    {loading ? <Loader/>:
       <Container fluid>
         <Row>
           <Image
@@ -31,17 +36,20 @@ export default function AboutUs() {
 
         <Row>
           <Col></Col>
-          <Col>
+          <Col xs={12} id="about3">
             <div id="about1">{data[0]?.heading}</div>
           </Col>
           <Col></Col>
         </Row>
         <Row>
-          <Col>
+          <Col></Col>
+          <Col xs={12} id="about3">
             <div id="about2">
              {data[0]?.description}
             </div>
           </Col>
+          <Col></Col>
+
         </Row>
         {/* <Row>
           <Col></Col>
@@ -59,11 +67,11 @@ export default function AboutUs() {
             alignItems: "center",
           }}
         >
-          <div>
+          {/* <div>
             <Button>View Details</Button>
-          </div>
+          </div> */}
         </div>
-      </Container>
+      </Container>}
     </>
   );
 }

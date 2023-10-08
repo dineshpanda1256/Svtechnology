@@ -1,9 +1,11 @@
 #homecompcard1 {
   border: 5px solid #CF3A30;
   margin-bottom: 2rem;
-  padding: 2.5rem 2rem 2.5rem 2rem;
+  padding: 4rem 2rem 4rem 2rem;
   width: 100%;
   transition: all 0.2s ease;
+  border-radius: 1rem;
+  cursor: pointer;
 }
 
 #homecompcard1:hover {
@@ -15,6 +17,8 @@
     width: 100%; */
   box-shadow: 5px 6px 6px 2px #e9ecef;
   transform: scale(1.1);
+  border-radius: 1rem;
+  cursor: pointer;
 }
 
 #homecompcard2 {
@@ -26,8 +30,8 @@
 #homecompcard3 {
   font-family: "Raleway";
   font-style: normal;
-  font-weight: 400;
-  font-size: large;
+  font-weight: 500;
+  font-size: 1.3rem;
   line-height: 1rem;
   color: #000000;
   text-align: center;

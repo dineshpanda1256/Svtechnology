@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Carousel } from "react-bootstrap";
 import "./Carosel.css";
 import { DriverController } from "../../redux/controllers/DriverController";
+import Loader from "../Loader/Loader";
 
 export default function Carosel() {
   const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getbanner();
@@ -13,8 +15,9 @@ export default function Carosel() {
   const getbanner = () => {
     DriverController.getAllbanners()
       .then((res) => {
+        console.log(res.data)
         setImages(res?.data);
-        // console.log("Images is......",setImages);
+        setLoading(false)
       })
       .catch((error) => {
         console.error("Error fetching images:", error);
@@ -22,9 +25,10 @@ export default function Carosel() {
   };
 
   return (
+    <>{loading ? <Loader/>:
     <Carousel fade>
       {images?.map((item) => (
-        <Carousel.Item interval={1000}>
+        <Carousel.Item interval={1000} style={{objectFit:'contain'}}>
           <img
             className="d-block w-100"
             src={item.image}
@@ -33,6 +37,6 @@ export default function Carosel() {
           />
         </Carousel.Item>
       ))}
-    </Carousel>
+    </Carousel>}</>
   );
 }

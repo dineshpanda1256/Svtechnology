@@ -128,7 +128,7 @@
     background-color: #252525;
   }
   #mailStoneDiv{
-    background: white;
+    background: transparent;
       border-radius: 4rem;
       width: 17rem;
       display: flex;
@@ -137,7 +137,7 @@
       padding-top: 1rem;
       padding-bottom: 0.3rem;
       margin-left: -2rem;
-      margin-top: 0.8rem;
+      /* margin-top: 0.8rem; */
   }
   #footer13{
     margin-top: 2.7rem;

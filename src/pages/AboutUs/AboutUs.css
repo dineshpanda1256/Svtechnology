@@ -6,6 +6,10 @@
     margin-top: 2rem;
 }
 #about2{
-    text-align: center;
+    text-align: justify;
     padding: 2rem;
+}
+#about3{
+    display: flex;
+    justify-content: center;
 }
