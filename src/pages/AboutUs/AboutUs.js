@@ -4,6 +4,7 @@ import { ReactComponent as ReactLogo } from "../../assets/image/about/header.svg
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import { DriverController } from "../../redux/controllers/DriverController";
 import Loader from "../../components/Loader/Loader";
+import Utilis from "../../utils/Toast";
 
 export default function AboutUs() {
   useEffect(()=>{
@@ -20,6 +21,16 @@ export default function AboutUs() {
           console.log(res.data)
           setData(res.data)
           setLoading(false)
+      })
+      .catch((err)=>{
+        console.error(err)
+        if(err.message){
+          Utilis.eToast(err.message)
+        }else{
+          Utilis.eToast('Something went wrong')
+
+        }
+       
       })
   }
 

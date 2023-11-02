@@ -6,7 +6,7 @@ import "./Header.css";
 import Logo from "../../assets/image/header/Logo.png";
 import CompanyLogo from "../../assets/image/header/companyLogo.svg";
 
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 
 function Header() {
@@ -56,8 +56,10 @@ function Header() {
                             color: "#CF3A30",
                             fontWeight: "bold",
                             fontSize: "1.2rem",
+                            display:'flex',
+                            alignItems:'center'
                           }
-                        : { color: "white", fontSize: "1.2rem" }
+                        : { color: "white", fontSize: "1.2rem", display:'flex', alignItems:'center' }
                     }
                     as={Link}
                     to={"/"}
@@ -72,8 +74,10 @@ function Header() {
                             color: "#CF3A30",
                             fontWeight: "bold",
                             fontSize: "1.2rem",
+                            display:'flex',
+                            alignItems:'center'
                           }
-                        : { color: "white", fontSize: "1.2rem" }
+                        : { color: "white", fontSize: "1.2rem", display:'flex', alignItems:'center' }
                     }
                     as={Link}
                     to={"/about"}
@@ -89,14 +93,50 @@ function Header() {
                             color: "#CF3A30",
                             fontWeight: "bold",
                             fontSize: "1.2rem",
+                            display:'flex',
+                            alignItems:'center'
                           }
-                        : { color: "white", fontSize: "1.2rem" }
+                        : { color: "white", fontSize: "1.2rem", display:'flex', alignItems:'center' }
                     }
                     as={Link}
                     to={"/contact"}
                     eventKey="3"
                   >
                     Contact us
+                  </Nav.Link>
+                  <Nav.Link
+                    style={
+                      location.pathname == "/contact"
+                        ? {
+                            color: "#CF3A30",
+                            fontWeight: "bold",
+                            fontSize: "1.2rem",
+                            display:'flex',
+                            alignItems:'center'
+                          }
+                        : { color: "white", fontSize: "1.2rem", display:'flex', alignItems:'center' }
+                    }
+                    
+                    eventKey="4"
+                  >
+                    <Button id="Header3">Login</Button>
+                  </Nav.Link>
+                  <Nav.Link
+                    style={
+                      location.pathname == "/contact"
+                        ? {
+                            color: "#CF3A30",
+                            fontWeight: "bold",
+                            fontSize: "1.2rem",
+                            display:'flex',
+                            alignItems:'center'
+                          }
+                        : { color: "white", fontSize: "1.2rem", display:'flex', alignItems:'center' }
+                    }
+                    
+                    eventKey="4"
+                  >
+                    <Button id="Header4">Sign up</Button>
                   </Nav.Link>
                 </Nav>
               </Offcanvas.Body>

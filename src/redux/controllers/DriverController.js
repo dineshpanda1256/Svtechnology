@@ -20,9 +20,15 @@ const getAllProducts = () => {
   return HttpClient.apiCaller( url, "get", null);
 };
 
+const getAllServices = () => {
+  let url = "service";
+  return HttpClient.apiCaller( url, "get", null);
+};
+
 export const DriverController = {
   getAboutUs,
   getAllbanners,
   postContactus,
-  getAllProducts
+  getAllProducts,
+  getAllServices
 };

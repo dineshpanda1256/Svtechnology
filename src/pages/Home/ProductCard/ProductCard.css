@@ -1,22 +1,28 @@
 #product1{
-    border: 3px solid black;
-    border-radius: 1rem;
-    box-shadow: 5px 5px 10px #cfcfcf;
-    
+    border: 3px solid #F2F2F2;
+    border-radius: 0.8rem;
+    box-shadow: 8px 8px 9px #cfcfcf;
+    position: relative;
+}
+#product1:hover{
+  cursor: pointer;
 }
 #product2{
     height: 12rem;
     width: 100%;
     border-radius: 2rem;
     margin-bottom: 0.5rem;
+    margin-top: 2rem;
 }
 #product3{
     font-size: 1.3rem;
     font-weight: bold;
-    color:white
+    color:white;
+    font-family:'AR One Sans';
 }
 #product4{
-    padding-left: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     padding-bottom: 1rem;
     padding-top: 1rem;
     border-top-width: 1px solid white;
@@ -26,9 +32,13 @@
     border-right: 0px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    background: linear-gradient(to bottom, #99fae6 0%, #009C80 100%);
+    background: linear-gradient(to bottom, #153980 0%, #153980 100%);
     border-bottom-left-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 #product5{
     padding: 0.5rem;
@@ -46,5 +56,30 @@
   }
   #product6{
     font-size: 0.9rem;
-    color:white
+    color:white;
+    font-family:'AR One Sans';
+  }
+  #product7{
+    width: 6rem;
+    background: #25D857;
+    color: white;
+    text-align: center;
+    border-radius: 0.4rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    position: absolute;
+    right: 5px;
+    top:5px
+  }
+  #product8{
+    color: white;
+    font-family:'AR One Sans';
+    transition: all .2s ease-in;
+
+  }
+  #product8:hover{
+    color: white;
+    font-family:'AR One Sans';
+    font-weight: bolder;
+
   }
