@@ -6,6 +6,8 @@
 }
 #product1:hover{
   cursor: pointer;
+  transform:  scale(1.04);
+  transition: all linear 1s;
 }
 #product2{
     height: 12rem;
@@ -48,7 +50,7 @@
 }
 @media only screen and (max-width: 600px) {
     #product2{
-        height: 8rem;
+        height: 12rem;
         width: 100%;
         border-radius: 2rem;
         margin-bottom: 0.5rem;

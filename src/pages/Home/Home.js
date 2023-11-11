@@ -79,7 +79,7 @@ export default function Home () {
         <Container style={{ marginTop: '2rem' }}>
           <Row style={{ marginTop: '1.5rem' }}>
             {productData?.map(item => (
-              <Col md={3} xs={6} style={{ marginBottom: '1rem' }}>
+              <Col md={3} xs={12} style={{ marginBottom: '1rem' }}>
                 <ProductCard item={item} />
               </Col>
             ))}
