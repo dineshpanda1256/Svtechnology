@@ -1,45 +1,78 @@
-#Header1{
-    margin-right:3rem
+#Header1 {
+  /* margin-right: 4rem; */
 }
-#navbar{
-    background-color: black;
-    color: white;
+#navbar {
+  background-color: white;
+  color: black;
+  height: 100px;
+  position: relative;
 }
-.Header2{
-    color: white;
-    background-color: black;
+.Header2 {
+  color: black;
+  background-color: white;
 }
-.slideout-overlay .gp-icon.pro-close, .slideout-navigation .dropdown-menu-toggle {
-    color: 'white';
-}
-#Header3{
-    background: linear-gradient(to bottom right, #EABF40 0%, #FF0000 100%);
-    border: none;
-    border-radius: 4rem;
-    min-width: 5rem;
-    transition: 1s;
-}
-#Header3:hover{
-    background: linear-gradient(to bottom left, #EABF40 0%, #FF0000 100%);
-    border: none;
-    border-radius: 4rem;
-    min-width: 6rem;
-    transform: (1.15);
-    transition: transform 1s ease-in-out all;
+.navbar-toggler {
+  background-color: #1c2752;
+  color: white;
 }
 
-#Header4{
-    background: linear-gradient(to top right, #FF0000 0%, #FE5B00 100%);
-    border: none;
-    border-radius: 4rem;
-    min-width: 4rem;
-    transition: 1s;
+.slideout-overlay .gp-icon.pro-close,
+.slideout-navigation .dropdown-menu-toggle {
+  color: "white";
 }
-#Header4:hover{
-    background: linear-gradient(to top left, #FE5B00 0%, #EABF40  100%);
-    border: none;
-    border-radius: 4rem;
-    min-width: 6rem;
-    transform: (1.15);
-    transition: transform 1s ease-in-out all;
+#Header3 {
+  background: linear-gradient(to bottom right, #eabf40 0%, #ff0000 100%);
+  border: none;
+  border-radius: 4rem;
+  min-width: 5rem;
+  transition: 1s;
+}
+#Header3:hover {
+  background: linear-gradient(to bottom left, #eabf40 0%, #ff0000 100%);
+  border: none;
+  border-radius: 4rem;
+  min-width: 6rem;
+  transform: (1.15);
+  transition: transform 1s ease-in-out all;
+}
+
+#Header4 {
+  background: linear-gradient(to top right, #ff0000 0%, #fe5b00 100%);
+  border: none;
+  border-radius: 4rem;
+  min-width: 4rem;
+  transition: 1s;
+}
+#Header4:hover {
+  background: linear-gradient(to top left, #fe5b00 0%, #eabf40 100%);
+  border: none;
+  border-radius: 4rem;
+  min-width: 6rem;
+  transform: (1.15);
+  transition: transform 1s ease-in-out all;
+}
+#Iconimg {
+  width: 50px;
+  height: 50px;
+}
+#labeltxt {
+  font-family: "Raleway";
+  font-weight: 700;
+  font-size: 20px;
+  color: black;
+}
+#labelbodytxt {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: black;
+}
+#Iconcontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#textcontainer {
+  margin-left: 20px;
 }

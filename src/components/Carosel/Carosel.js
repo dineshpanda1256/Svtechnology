@@ -15,9 +15,9 @@ export default function Carosel() {
   const getbanner = () => {
     DriverController.getAllbanners()
       .then((res) => {
-        console.log(res.data)
+        console.log(res.data);
         setImages(res?.data);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching images:", error);
@@ -25,18 +25,23 @@ export default function Carosel() {
   };
 
   return (
-    <>{loading ? <Loader/>:
-    <Carousel fade>
-      {images?.map((item) => (
-        <Carousel.Item interval={1000} style={{objectFit:'contain'}}>
-          <img
-            className="d-block w-100"
-            src={item.image}
-            alt="First slide"
-            id="carosel1"
-          />
-        </Carousel.Item>
-      ))}
-    </Carousel>}</>
+    <div style={{ marginTop: "-2rem", zIndex: 0 }}>
+      {loading ? (
+        <Loader />
+      ) : (
+        <Carousel fade>
+          {images?.map((item) => (
+            <Carousel.Item interval={1000} style={{ objectFit: "contain" }}>
+              <img
+                className="d-block w-100"
+                src={item.image}
+                alt="First slide"
+                id="carosel1"
+              />
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      )}
+    </div>
   );
 }

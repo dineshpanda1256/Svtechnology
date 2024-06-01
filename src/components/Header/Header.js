@@ -1,18 +1,23 @@
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import "./Header.css";
 import Logo from "../../assets/image/header/Logo.png";
-import CompanyLogo from "../../assets/image/header/companyLogo.svg";
-
+import CompanyLogo from "../../assets/img/logo/logo.svg";
+import MsgIcon from "../../assets/img/header/msgIcon.png";
+import CallIcon from "../../assets/img/header/callIcon.png";
 import { Button, Image } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
+import NavigationHeader from "../NavigationHeader/NavigationHeader";
+import TopHeader from "../TopHeader/TopHeader";
 
 function Header() {
   const location = useLocation();
   return (
-    <>
+    <div style={{ position: "relative", zIndex: 2 }}>
+      <TopHeader />
       {["md"].map((expand) => (
         <Navbar
           key={expand}
@@ -21,7 +26,7 @@ function Header() {
           variant="dark"
           collapseOnSelect="true"
         >
-          <Container fluid>
+          <Container>
             <Navbar.Brand as={Link} to={"/"} style={{ color: "white" }}>
               <Image src={CompanyLogo} style={{ width: "14rem" }} />
             </Navbar.Brand>
@@ -35,12 +40,12 @@ function Header() {
               placement="end"
               // className="Header2"
             >
-              <Offcanvas.Header closeButton > 
+              <Offcanvas.Header closeButton>
                 <Offcanvas.Title
                   id={`offcanvasNavbarLabel-expand-${expand}`}
                   style={{ color: "black" }}
                 >
-                  <div style={{ backgroundColor:'black',padding:'0.4rem', borderRadius:'0.2rem' }}><Image src={CompanyLogo} style={{ width: "13rem" }} /></div>
+                  <Image src={CompanyLogo} style={{ width: "13rem" }} />
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body className="Header2">
@@ -48,95 +53,28 @@ function Header() {
                   className="justify-content-end flex-grow-1 pe-3"
                   id="Header1"
                 >
-                  <Nav.Link
-                    href="#action1"
-                    style={
-                      location.pathname == "/"
-                        ? {
-                            color: "#CF3A30",
-                            fontWeight: "bold",
-                            fontSize: "1.2rem",
-                            display:'flex',
-                            alignItems:'center'
-                          }
-                        : { color: "white", fontSize: "1.2rem", display:'flex', alignItems:'center' }
-                    }
-                    as={Link}
-                    to={"/"}
-                    eventKey="1"
-                  >
-                    Home
+                  <Nav.Link>
+                    <div id="Iconcontainer">
+                      <div>
+                        <Image src={MsgIcon} id="Iconimg" />
+                      </div>
+                      <div id="textcontainer">
+                        <div id="labeltxt">Mail Us</div>
+                        <div id="labelbodytxt">info@svtechnology.com</div>
+                      </div>
+                    </div>
                   </Nav.Link>
-                  <Nav.Link
-                    style={
-                      location.pathname == "/about"
-                        ? {
-                            color: "#CF3A30",
-                            fontWeight: "bold",
-                            fontSize: "1.2rem",
-                            display:'flex',
-                            alignItems:'center'
-                          }
-                        : { color: "white", fontSize: "1.2rem", display:'flex', alignItems:'center' }
-                    }
-                    as={Link}
-                    to={"/about"}
-                    eventKey="2"
-                  >
-                    About us
-                  </Nav.Link>
-                  {/* <Nav.Link  style={{color:'white', fontSize:'1.2rem'}} as={Link} to={"/services"}>Services</Nav.Link> */}
-                  <Nav.Link
-                    style={
-                      location.pathname == "/contact"
-                        ? {
-                            color: "#CF3A30",
-                            fontWeight: "bold",
-                            fontSize: "1.2rem",
-                            display:'flex',
-                            alignItems:'center'
-                          }
-                        : { color: "white", fontSize: "1.2rem", display:'flex', alignItems:'center' }
-                    }
-                    as={Link}
-                    to={"/contact"}
-                    eventKey="3"
-                  >
-                    Contact us
-                  </Nav.Link>
-                  <Nav.Link
-                    style={
-                      location.pathname == "/contact"
-                        ? {
-                            color: "#CF3A30",
-                            fontWeight: "bold",
-                            fontSize: "1.2rem",
-                            display:'flex',
-                            alignItems:'center'
-                          }
-                        : { color: "white", fontSize: "1.2rem", display:'flex', alignItems:'center' }
-                    }
-                    
-                    eventKey="4"
-                  >
-                    <Button id="Header3">Login</Button>
-                  </Nav.Link>
-                  <Nav.Link
-                    style={
-                      location.pathname == "/contact"
-                        ? {
-                            color: "#CF3A30",
-                            fontWeight: "bold",
-                            fontSize: "1.2rem",
-                            display:'flex',
-                            alignItems:'center'
-                          }
-                        : { color: "white", fontSize: "1.2rem", display:'flex', alignItems:'center' }
-                    }
-                    
-                    eventKey="4"
-                  >
-                    <Button id="Header4">Sign up</Button>
+
+                  <Nav.Link>
+                    <div id="Iconcontainer">
+                      <div>
+                        <Image src={CallIcon} id="Iconimg" />
+                      </div>
+                      <div id="textcontainer">
+                        <div id="labeltxt">Call Us </div>
+                        <div id="labelbodytxt">+91 9322905948</div>
+                      </div>
+                    </div>
                   </Nav.Link>
                 </Nav>
               </Offcanvas.Body>
@@ -144,7 +82,9 @@ function Header() {
           </Container>
         </Navbar>
       ))}
-    </>
+
+      <NavigationHeader />
+    </div>
   );
 }
 

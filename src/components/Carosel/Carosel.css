@@ -1,11 +1,11 @@
-#carosel1{
-    height: 65vh;
-    width: 100%;
+#carosel1 {
+  height: 75vh;
+  width: 100%;
 }
 
 @media only screen and (max-width: 600px) {
-    #carosel1{
-        height: 30vh;
-        width: 100%;
-    }
+  #carosel1 {
+    height: 30vh;
+    width: 100%;
   }
+}

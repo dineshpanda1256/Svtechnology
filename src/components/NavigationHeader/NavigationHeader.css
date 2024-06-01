@@ -1,0 +1,63 @@
+#nav-head-container {
+  padding-left: 1.7rem;
+  padding-right: 1.7rem;
+}
+#nav-head-col {
+  background-color: #f7990c;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 10px;
+}
+#nav-head-div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+#navigation-div {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  width: 60%;
+}
+#navigation-text {
+  font-weight: 700;
+  font-family: "Raleway";
+}
+#question-btn {
+  background-color: #1c2752;
+  color: white;
+  font-weight: 600;
+  font-family: "Raleway";
+  font-size: 17px;
+  border: none;
+}
+
+@media only screen and (max-width: 600px) {
+  #navigation-div {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+  }
+  #navigation-text {
+    font-weight: 700;
+    font-family: "Raleway";
+    font-size: 12px;
+  }
+  #question-btn {
+    background-color: #1c2752;
+    color: white;
+    font-weight: 600;
+    font-family: "Raleway";
+    font-size: 10px;
+    width: 100%;
+    border: none;
+  }
+  #nav-head-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
