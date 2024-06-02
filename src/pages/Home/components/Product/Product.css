@@ -1,0 +1,29 @@
+#product-container {
+  background-image: url("../../../../assets/img/product/productBackground.svg");
+  background-size: cover; /* Ensure the background image covers the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 80px;
+  margin-bottom: 50px;
+}
+#product-heading-text {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+#product-col {
+  margin-bottom: 1rem;
+}
+@media only screen and (max-width: 600px) {
+  #product-container {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}

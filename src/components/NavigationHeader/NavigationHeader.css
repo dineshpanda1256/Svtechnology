@@ -24,6 +24,14 @@
 #navigation-text {
   font-weight: 700;
   font-family: "Raleway";
+  cursor: pointer;
+}
+#navigation-text:hover {
+  color: white;
+  font-weight: 700;
+  font-family: "Raleway";
+  cursor: pointer;
+  transition: 0.5s all linear;
 }
 #question-btn {
   background-color: #1c2752;

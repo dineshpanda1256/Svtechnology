@@ -11,6 +11,8 @@ import Image7 from "../../assets/image/home/Image7.png";
 import HomeCard from "./HomeCard/HomeCard";
 import ProductCard from "./ProductCard/ProductCard";
 import { DriverController } from "../../redux/controllers/DriverController";
+import Service from "./components/Service/Service";
+import Product from "./components/Product/Product";
 
 export default function Home() {
   useEffect(() => {
@@ -26,7 +28,7 @@ export default function Home() {
     try {
       const res = await DriverController.getAllProducts();
       // console.log('all products.....', res.data.result)
-      setProductData(res.data.result);
+      setProductData(res?.data?.result?.slice(0, 6));
     } catch (error) {
       console.log(error);
     }
@@ -42,54 +44,32 @@ export default function Home() {
     }
   };
 
+  const data = [
+    {
+      image: "orange",
+      title: "Affordable Price",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting",
+    },
+    {
+      image: "blue",
+      title: "One on One Monitor",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting",
+    },
+    {
+      image: "orange",
+      title: "Affordable Price",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting",
+    },
+  ];
+
   return (
-    //   <>
-    <Carosel />
-    //     <Container fluid>
-    //       <Row>
-    //         {/* <Col md={1} xs={1}></Col> */}
-    //         <Col id='home1'>Service We Offer</Col>
-    //         {/* <Col md={1} xs={1}></Col> */}
-    //       </Row>
-    //       <Container
-    //         style={{
-    //           marginTop: '1.5rem',
-    //           paddingLeft: '2rem',
-    //           paddingRight: '2rem'
-    //         }}
-    //       >
-    //         <Row>
-    //           {serviceData?.map(item => (
-    //             <Col md={4} id='home12'>
-    //               <HomeCard text={item?.servicename} />
-    //             </Col>
-    //           ))}
-
-    //           {/* <Col md={4} id="home12" >
-    //                   <HomeCard img={Image3} text="Interiors" />
-    //                 </Col> */}
-    //         </Row>
-    //       </Container>
-
-    //       <Row>
-    //         {/* <Col md={1} xs={1}></Col> */}
-    //         <Col id='home2'>OUR PRODUCTS</Col>
-    //         {/* <Col md={1} xs={1}></Col> */}
-    //       </Row>
-    //       <Container style={{ marginTop: '2rem' }}>
-    //         <Row style={{ marginTop: '1.5rem' }}>
-    //           {productData?.map(item => (
-    //             <Col md={3} xs={12} style={{ marginBottom: '1rem' }}>
-    //               <ProductCard item={item} />
-    //             </Col>
-    //           ))}
-    //           {/* <Col md={3} xs={6} style={{marginBottom:'1rem'}}><ProductCard/></Col>
-    //               <Col md={3} xs={6} style={{marginBottom:'1rem'}}><ProductCard/></Col>
-    //               <Col md={3} xs={6} style={{marginBottom:'1rem'}}><ProductCard/></Col> <Col md={3} xs={6} style={{marginBottom:'1rem'}}><ProductCard/></Col>
-    //               <Col md={3} xs={6} style={{marginBottom:'1rem'}}><ProductCard/></Col>                */}
-    //         </Row>
-    //       </Container>
-    //     </Container>
-    //   </>
+    <>
+      <Carosel />
+      <Service serviceData={data} />
+      <Product productData={productData} />
+    </>
   );
 }

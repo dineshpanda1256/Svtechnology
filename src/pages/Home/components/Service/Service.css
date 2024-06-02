@@ -1,0 +1,79 @@
+/* Ensure the body and html have no padding or margin to avoid gaps */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Style for the service container */
+#service-container {
+  background-image: url("../../../../assets/img/service/serviceBackground.svg");
+  background-size: cover; /* Ensure the background image covers the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  padding-top: 50px;
+  padding-bottom: 80px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+/* Style for the service card */
+#service-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 15px;
+  width: 84%;
+  margin: 0 auto; /* Center the card horizontally */
+}
+
+/* Style for the image div */
+#image-div {
+  width: 60px;
+  height: 60px;
+  background-color: rgb(5, 5, 89);
+  border-radius: 0.8rem;
+  margin-bottom: 20px;
+}
+
+/* Style for the service heading text */
+#service-heading-text {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Style for the service card title */
+#service-card-title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Style for the service card description */
+#service-card-desp {
+  font-weight: 400;
+  font-size: 17px;
+  color: gray;
+  width: 90%;
+}
+
+/* Responsive adjustments for smaller screens */
+@media only screen and (max-width: 600px) {
+  #service-card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  #service-container {
+    padding-bottom: 60px;
+  }
+}
