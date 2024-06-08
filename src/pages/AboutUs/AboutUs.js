@@ -7,62 +7,59 @@ import Loader from "../../components/Loader/Loader";
 import Utilis from "../../utils/Toast";
 
 export default function AboutUs() {
-  useEffect(()=>{
-    getAboutUs()
-      window.scrollTo(0,0);
-  },[])
+  useEffect(() => {
+    getAboutUs();
+    window.scrollTo(0, 0);
+  }, []);
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getAboutUs = () => {
-      DriverController.getAboutUs()
-      .then((res)=>{
-          console.log(res.data)
-          setData(res.data)
-          setLoading(false)
+    DriverController.getAboutUs()
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+        setLoading(false);
       })
-      .catch((err)=>{
-        console.error(err)
-        if(err.message){
-          Utilis.eToast(err.message)
-        }else{
-          Utilis.eToast('Something went wrong')
-
+      .catch((err) => {
+        console.error(err);
+        if (err.message) {
+          Utilis.eToast(err.message);
+        } else {
+          Utilis.eToast("Something went wrong");
         }
-       
-      })
-  }
+      });
+  };
 
   return (
     <>
-    {loading ? <Loader/>:
-      <Container fluid>
-        <Row>
+      {loading ? (
+        <Loader />
+      ) : (
+        <Container fluid>
+          {/* <Row>
           <Image
             src={require("../../assets/image/about/header.jpg")}
             style={{ padding: "0" }}
           />
-        </Row>
+        </Row> */}
 
-        <Row>
-          <Col></Col>
-          <Col xs={12} id="about3">
-            <div id="about1">{data[0]?.heading}</div>
-          </Col>
-          <Col></Col>
-        </Row>
-        <Row>
-          <Col></Col>
-          <Col xs={12} id="about3">
-            <div id="about2">
-             {data[0]?.description}
-            </div>
-          </Col>
-          <Col></Col>
-
-        </Row>
-        {/* <Row>
+          <Row>
+            <Col></Col>
+            <Col xs={12} id="about3">
+              <div id="about1">{data[0]?.heading}</div>
+            </Col>
+            <Col></Col>
+          </Row>
+          <Row>
+            <Col></Col>
+            <Col xs={12} id="about3">
+              <div id="about2">{data[0]?.description}</div>
+            </Col>
+            <Col></Col>
+          </Row>
+          {/* <Row>
           <Col></Col>
           <Col
            
@@ -71,18 +68,19 @@ export default function AboutUs() {
           </Col>
           <Col></Col>
         </Row> */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          {/* <div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {/* <div>
             <Button>View Details</Button>
           </div> */}
-        </div>
-      </Container>}
+          </div>
+        </Container>
+      )}
     </>
   );
 }

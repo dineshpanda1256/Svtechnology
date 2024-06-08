@@ -1,0 +1,45 @@
+#product-detail-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+#productImage {
+  width: 100%;
+  /* max-width: 400px; */
+  height: 300px;
+  border-radius: 0.5rem;
+  align-self: center;
+  display: flex;
+}
+#product-ratingContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+#ratingText {
+  margin-left: 1rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+#smallProductImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 1.4rem;
+  object-fit: cover;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+#smallProductImgContainer {
+  display: flex;
+  overflow-x: scroll;
+  width: 100%;
+  min-height: 60px;
+  background-color: #fff;
+  padding: 0.4rem;
+  padding-left: 1rem;
+  border-radius: 10px;
+  margin-top: 0.8rem;
+  margin-bottom: 0.5rem;
+  font-family: "IBM Plex Sans";
+  font-size: 0.9rem;
+  font-weight: 500;
+}

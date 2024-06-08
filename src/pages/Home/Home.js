@@ -13,6 +13,7 @@ import ProductCard from "./ProductCard/ProductCard";
 import { DriverController } from "../../redux/controllers/DriverController";
 import Service from "./components/Service/Service";
 import Product from "./components/Product/Product";
+import CustomerFeedback from "../../components/CustomerFeedback/CustomerFeedback";
 
 export default function Home() {
   useEffect(() => {
@@ -70,6 +71,8 @@ export default function Home() {
       <Carosel />
       <Service serviceData={data} />
       <Product productData={productData} />
+      <div id="customer-say-label">What our Customer say</div>
+      <CustomerFeedback />
     </>
   );
 }

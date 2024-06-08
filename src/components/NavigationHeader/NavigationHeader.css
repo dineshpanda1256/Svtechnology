@@ -25,6 +25,7 @@
   font-weight: 700;
   font-family: "Raleway";
   cursor: pointer;
+  user-select: none;
 }
 #navigation-text:hover {
   color: white;

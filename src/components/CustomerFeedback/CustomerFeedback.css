@@ -1,0 +1,45 @@
+/* CustomerFeedback.css */
+.feedbackCardContainer {
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  background-color: #f9f9f9;
+  margin: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.feedbackCardContainer:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+
+.feedbackName {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.feedbackMessage {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+#ratingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#customerImage {
+  border-radius: 10rem;
+  height: 70px;
+  width: 70px;
+  margin-bottom: 0.8rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .feedbackCardContainer {
+    height: 17rem;
+  }
+}

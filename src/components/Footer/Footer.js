@@ -1,102 +1,98 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import "./Footer.css";
-import { AiOutlineYoutube } from "react-icons/ai";
-import { RiFacebookCircleFill } from "react-icons/ri";
-import { AiOutlineTwitter } from "react-icons/ai";
-import { AiOutlineInstagram } from "react-icons/ai";
-// import mail from "../../assets/Group 1.png";
-// import jbs from "../../assets/header/jbslogo.png";
+
 import { Link, useLocation } from "react-router-dom";
-import twitterLogo from "../../assets/image/footer/twitterLogo.png"
-import CompanyLogo from "../../assets/image/header/companyLogo.svg";
+import CompanyLogo from "../../assets/img/logo/logo.svg";
+import MsgIcon from "../../assets/img/footer/mailicon.svg";
+import CallIcon from "../../assets/img/footer/callicon.svg";
+import LocationIcon from "../../assets/img/footer/locationicon.svg";
+import FacebookIcon from "../../assets/img/footer/facebookicon.svg";
+import TweeterIcon from "../../assets/img/footer/tweetericon.svg";
+import InstragramIcon from "../../assets/img/footer/instagramicon.svg";
 
 export default function Footer() {
   const location = useLocation();
-  
+
   return (
-    <>
-     
-          <Container fluid id="footer1" className="backgroundFooter">
-            <Container>
-              <Row>
-                <Col md={3} lg={3} sm={12} xs={12} id="footer3">
-                  <Row>
-                    <div id="mailStoneDiv">
-                    <img src={CompanyLogo} alt="logo" id="footer7" />
-                    </div>
-                  </Row>
-                  
-                </Col>
-               
-                <Col id="footer13">
-                <div>
-                    <Row id="footer2">
-                      <Link to="/about" id="footer12">About Us</Link>
-                    </Row>
-                    {/* <Row id="footer2"><Link to="/privacypolicy" id="footer12">Privacy Policy</Link></Row> */}
-                    <Row id="footer2"><Link  to="/contact" id="footer12">Contact Us</Link></Row>
-                  </div>
-                </Col>
-                <Col md={4} lg={4} sm={12} xs={12} id="footer3">
-                  <Row id="footer4">Get In Touch</Row>
-                  <Row id="footer2">
-                    <a
-                      id="footer10"
-                      target="_blank"
-                      href="https://goo.gl/maps/aLUHpVnLJSin1Vn78"
-                    >
-                      Krishna Kanhaiya society, Sector 8, Airoli, Navi Mumbai, Maharashtra 400708
-                    
-                    </a>
-                  </Row>
-                  <Row id="footer2">
-                    <a id="footer10" href="tel:+919322905948">
-                      (+91) 9322905948
-                    </a>
-                  </Row>
+    <Container fluid id="footer1" className="backgroundFooter">
+      <Container>
+        <Row>
+          <Col md={4} xs={12} sm={12}>
+            <Image src={CompanyLogo} style={{ width: "14rem" }} />
+          </Col>
+          <Col>
+            <div id="Iconcontainer">
+              <div>
+                <Image src={MsgIcon} id="Iconimg" />
+              </div>
+              <div id="textcontainer">
+                <div id="footerIconLabel-txt">Mail Us</div>
+                <div id="footer-labelbodytxt">Info@Example.com</div>
+              </div>
+            </div>
+          </Col>
+          <Col>
+            <div id="Iconcontainer">
+              <div>
+                <Image src={CallIcon} id="Iconimg" />
+              </div>
+              <div id="textcontainer">
+                <div id="footerIconLabel-txt">Call Us</div>
+                <div id="footer-labelbodytxt">+91 9322905948</div>
+              </div>
+            </div>
+          </Col>
+          <Col>
+            <div id="Iconcontainer">
+              <div>
+                <Image src={LocationIcon} id="Iconimg" />
+              </div>
+              <div id="textcontainer">
+                <div id="footerIconLabel-txt">Location</div>
+                <div id="footer-labelbodytxt">Maharashtra</div>
+              </div>
+            </div>
+          </Col>
+        </Row>
+        <div id="line-div" />
 
-                  <Row id="footer2">
-                    <a id="footer10" href="mailto:info@svtechnology.com">
-                        info@svtechnology.com
-                    </a>
-                  </Row>
+        <Row>
+          <Col md={6} id="company-description-col">
+            <div id="company-description-txt">
+              Denouncing pleasure and praising pain was born and I will givg you
+              a coghmplete acchount of the system, and expound the actual
+            </div>
+            <Row>
+              <Col id="icon-col">
+                <Image src={FacebookIcon} />
+              </Col>
+              <Col id="icon-col">
+                <Image src={InstragramIcon} />
+              </Col>
+              <Col id="icon-col">
+                <Image src={TweeterIcon} />
+              </Col>
+              <Col md={6} xs={2} />
+            </Row>
+          </Col>
 
-                  
-                </Col>
-                <Col md={3} lg={3} sm={12} xs={12} id="footer3">
-                  <div>
-                  <Row id="footer4">Follow Us</Row>
-                  <Row id="footer5">
-                    <div id="footer6">
-                      <a href="https://www.youtube.com/" target="_blank">
-                        <AiOutlineYoutube id="footer9" />
-                      </a>
-                    </div>
-                    <div id="footer6">
-                      <a href="https://www.facebook.com/" target="_blank">
-                        <RiFacebookCircleFill id="footer9" />
-                      </a>
-                    </div>
-                    <div id="footer6">
-                      <a href="https://twitter.com/" target="_blank">
-                        {/* <AiOutlineTwitter id="footer9" /> */}
-                        <img src={twitterLogo}  style={{width:'100%', height:'2.2vh', borderRadius:'0.2rem', marginTop:'-0.18rem'}}/>
-                        
-                      </a>
-                    </div>
-                    <div id="footer6">
-                      <a href="https://www.instagram.com/" target="_blank">
-                        <AiOutlineInstagram id="footer9" />
-                      </a>
-                    </div>
-                  </Row>
-                  </div>
-                </Col>
-                <Col md={2} lg={2} sm={12} xs={12} id="footer3"></Col>
-              </Row>
-            </Container>
-          </Container>
-    </>
+          <Col md={4}>
+            <div id="explore-label">Explore</div>
+            <div id="explore-body-text">About Us</div>
+            <div id="explore-body-text">Services</div>
+            <div id="explore-body-text">FAQ</div>
+            <div id="explore-body-text">Contactus</div>
+          </Col>
+          <Col md={3}></Col>
+        </Row>
+
+        <div id="line-div" />
+
+        <Row>
+          <Col id="copyright-text">Copyright © SV Technology</Col>
+        </Row>
+      </Container>
+    </Container>
   );
 }
