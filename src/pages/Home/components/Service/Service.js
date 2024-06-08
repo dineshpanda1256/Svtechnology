@@ -13,7 +13,7 @@ export default function Service({ serviceData }) {
         {serviceData?.map((item) => (
           <Col md={3} xs={12}>
             <div id="service-card">
-              <div id="image-div" />
+              <img src={item?.service_image} id="image-div" />
               <div id="service-card-title">{item?.servicename}</div>
               <div id="service-card-desp">{item?.description}</div>
             </div>

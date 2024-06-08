@@ -34,7 +34,7 @@ html {
 #image-div {
   width: 60px;
   height: 60px;
-  background-color: rgb(5, 5, 89);
+  /* background-color: rgb(5, 5, 89); */
   border-radius: 0.8rem;
   margin-bottom: 20px;
 }

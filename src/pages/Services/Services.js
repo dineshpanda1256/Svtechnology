@@ -27,25 +27,28 @@ export default function Services() {
 
   return (
     <Container fluid>
-      <Row>
-        <div id="Heading-text">Our Services</div>
-      </Row>
       {loading ? (
         <Loader />
       ) : (
-        <Row>
-          <Col />
-          {serviceData?.map((item) => (
-            <Col md={3} xs={12}>
-              <div id="card-service-page">
-                <div id="image-div" />
-                <div id="service-card-title">{item?.servicename}</div>
-                <div id="service-card-desp">{item?.description}</div>
-              </div>
-            </Col>
-          ))}
-          <Col />
-        </Row>
+        <>
+          <Row>
+            <div id="Heading-text">Our Services</div>
+          </Row>
+
+          <Row>
+            <Col />
+            {serviceData?.map((item) => (
+              <Col md={3} xs={12}>
+                <div id="card-service-page">
+                  <img src={item?.service_image} id="image-div" />
+                  <div id="service-card-title">{item?.servicename}</div>
+                  <div id="service-card-desp">{item?.description}</div>
+                </div>
+              </Col>
+            ))}
+            <Col />
+          </Row>
+        </>
       )}
     </Container>
   );
