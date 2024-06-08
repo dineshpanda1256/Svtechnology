@@ -7,22 +7,32 @@ const getAboutUs = () => {
 
 const getAllbanners = () => {
   let url = "banner";
-  return HttpClient.apiCaller( url, "get", null);
+  return HttpClient.apiCaller(url, "get", null);
 };
 
 const postContactus = (data) => {
   let url = "contact";
-  return HttpClient.apiCaller( url, "post", data)
-}
+  return HttpClient.apiCaller(url, "post", data);
+};
 
 const getAllProducts = () => {
   let url = "product";
-  return HttpClient.apiCaller( url, "get", null);
+  return HttpClient.apiCaller(url, "get", null);
 };
 
 const getAllServices = () => {
   let url = "service";
-  return HttpClient.apiCaller( url, "get", null);
+  return HttpClient.apiCaller(url, "get", null);
+};
+
+const payment = (data) => {
+  let url = "/user/razorpay/payment";
+  return HttpClient.apiCaller(url, "POST", data);
+};
+
+const getProductDetailsById = (items) => {
+  let url = `product/${items._id}`;
+  return HttpClient.apiCaller(url, "GET", null);
 };
 
 export const DriverController = {
@@ -30,5 +40,7 @@ export const DriverController = {
   getAllbanners,
   postContactus,
   getAllProducts,
-  getAllServices
+  getAllServices,
+  payment,
+  getProductDetailsById,
 };

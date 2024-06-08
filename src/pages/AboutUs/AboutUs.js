@@ -38,47 +38,61 @@ export default function AboutUs() {
         <Loader />
       ) : (
         <Container fluid>
-          {/* <Row>
-          <Image
-            src={require("../../assets/image/about/header.jpg")}
-            style={{ padding: "0" }}
-          />
-        </Row> */}
-
           <Row>
             <Col></Col>
-            <Col xs={12} id="about3">
+            <Col xs={10} id="about3">
               <div id="about1">{data[0]?.heading}</div>
             </Col>
             <Col></Col>
           </Row>
           <Row>
             <Col></Col>
-            <Col xs={12} id="about3">
+            <Col xs={10} id="about3">
               <div id="about2">{data[0]?.description}</div>
             </Col>
             <Col></Col>
           </Row>
-          {/* <Row>
-          <Col></Col>
-          <Col
-           
-          >
-            <Button  style={{alignSelf:"center",display:"flex"}}>View Services</Button>
-          </Col>
-          <Col></Col>
-        </Row> */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            {/* <div>
-            <Button>View Details</Button>
-          </div> */}
-          </div>
+
+          <Row>
+            <Col></Col>
+            <Col xs={10} id="about3">
+              <div id="about1">Our Vision</div>
+            </Col>
+            <Col></Col>
+          </Row>
+          <Row>
+            <Col></Col>
+            <Col xs={10} id="about3">
+              <div id="about2">
+                At SV Technology, our vision is to become the leading provider
+                of UPS solutions, setting the benchmark for reliability,
+                innovation, and customer satisfaction. We aim to empower
+                businesses with seamless power backup solutions that ensure
+                uninterrupted operations and peace of mind.
+              </div>
+            </Col>
+            <Col></Col>
+          </Row>
+
+          <Row>
+            <Col></Col>
+            <Col xs={10} id="about3">
+              <div id="about1">Our Mission</div>
+            </Col>
+            <Col></Col>
+          </Row>
+          <Row>
+            <Col></Col>
+            <Col xs={10} id="about3">
+              <div id="about2">
+                Our mission is to exceed the expectations of our clients by
+                delivering superior UPS products and services that cater to
+                their unique needs. We are dedicated to fostering long-term
+                partnerships built on trust, integrity, and reliability.
+              </div>
+            </Col>
+            <Col></Col>
+          </Row>
         </Container>
       )}
     </>

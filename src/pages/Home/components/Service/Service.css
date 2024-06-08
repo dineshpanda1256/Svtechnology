@@ -59,9 +59,9 @@ html {
 /* Style for the service card description */
 #service-card-desp {
   font-weight: 400;
-  font-size: 17px;
+  font-size: 15px;
   color: gray;
-  width: 90%;
+  text-align: start;
 }
 
 /* Responsive adjustments for smaller screens */

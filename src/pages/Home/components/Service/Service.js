@@ -14,7 +14,7 @@ export default function Service({ serviceData }) {
           <Col md={3} xs={12}>
             <div id="service-card">
               <div id="image-div" />
-              <div id="service-card-title">{item?.title}</div>
+              <div id="service-card-title">{item?.servicename}</div>
               <div id="service-card-desp">{item?.description}</div>
             </div>
           </Col>

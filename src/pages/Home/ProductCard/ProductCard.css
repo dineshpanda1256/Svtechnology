@@ -90,3 +90,8 @@
   font-family: "AR One Sans";
   font-weight: bolder;
 }
+#actual-price-text {
+  font-size: 1rem;
+  color: white;
+  font-family: "AR One Sans";
+}

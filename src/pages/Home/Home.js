@@ -29,7 +29,7 @@ export default function Home() {
     try {
       const res = await DriverController.getAllProducts();
       // console.log('all products.....', res.data.result)
-      setProductData(res?.data?.result?.slice(0, 6));
+      setProductData(res?.data?.result?.slice(0, 9));
     } catch (error) {
       console.log(error);
     }
@@ -69,7 +69,7 @@ export default function Home() {
   return (
     <>
       <Carosel />
-      <Service serviceData={data} />
+      <Service serviceData={serviceData} />
       <Product productData={productData} />
       <div id="customer-say-label">What our Customer say</div>
       <CustomerFeedback />
