@@ -35,6 +35,16 @@ const getProductDetailsById = (items) => {
   return HttpClient.apiCaller(url, "GET", null);
 };
 
+const login = (data) => {
+  let url = "svlogin";
+  return HttpClient.apiCaller(url, "POST", data);
+};
+
+const register = (data) => {
+  let url = "svregister";
+  return HttpClient.apiCaller(url, "POST", data);
+};
+
 export const DriverController = {
   getAboutUs,
   getAllbanners,
@@ -43,4 +53,6 @@ export const DriverController = {
   getAllServices,
   payment,
   getProductDetailsById,
+  login,
+  register,
 };

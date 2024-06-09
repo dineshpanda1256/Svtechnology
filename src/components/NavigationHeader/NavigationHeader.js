@@ -25,7 +25,9 @@ export default function NavigationHeader() {
               </div>
             </div>
             <div>
-              <Button id="question-btn">Questions ?</Button>
+              <Button id="question-btn" onClick={() => navigate("/login")}>
+                Login
+              </Button>
             </div>
           </div>
         </Col>

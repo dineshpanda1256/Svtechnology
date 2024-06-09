@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import PropTypes from "prop-types";
 import "./GlobalButton.css";
 
@@ -11,17 +11,18 @@ const GlobalButton = ({
   disabled,
   className,
   style,
+  isLoading,
 }) => {
   return (
     <Button
       variant={variant}
       size={size}
       onClick={onClick}
-      disabled={disabled}
+      disabled={isLoading || disabled}
       style={style}
       className={`global-button ${className}`}
     >
-      {children}
+      {isLoading && <Spinner size="sm" variant="light" />} {children}
     </Button>
   );
 };
@@ -32,6 +33,7 @@ GlobalButton.propTypes = {
   onClick: PropTypes.func,
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
+  isLoading: PropTypes.bool,
   className: PropTypes.string,
   style: PropTypes.object,
 };
@@ -42,6 +44,8 @@ GlobalButton.defaultProps = {
   onClick: () => {},
   disabled: false,
   className: "",
+  isLoading: false,
+  style: {},
 };
 
 export default GlobalButton;

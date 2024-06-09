@@ -156,7 +156,10 @@ export default function ProductDetails() {
             </div>
             <div id="price-text">
               ₹{productDetails?.price || "N/A"}
-              <del id="mrp-text">₹{calculateMRP(productDetails)}</del>
+              <del id="mrp-text">₹{calculateMRP(productDetails)}</del>{" "}
+              <span id="offer-percent-text">
+                {productDetails?.discount} off
+              </span>
             </div>
             <GlobalButton
               onClick={handlePayment}

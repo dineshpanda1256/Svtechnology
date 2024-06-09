@@ -9,6 +9,8 @@ import toast, { Toaster } from "react-hot-toast";
 import GoToTop from "./components/GoToTop/GoToTop";
 import Footer from "./components/Footer/Footer";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import AccountLogin from "./pages/AccountLogin/AccountLogin";
+import AccountRegister from "./pages/AccountRegister/AccountRegister";
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contactus />} />
           <Route path="/productDetails/:id" element={<ProductDetails />} />
+          <Route path="/login" element={<AccountLogin />} />
+          <Route path="/register" element={<AccountRegister />} />
         </Routes>
         <GoToTop />
         <Footer />
