@@ -6,15 +6,20 @@ import GlobalButton from "../../components/GlobalButton/GlobalButton";
 import Specification from "./components/Specification/Specification";
 import { DriverController } from "../../redux/controllers/DriverController";
 import useRazorpay from "react-razorpay";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
+import { useSelector } from "react-redux";
 
 export default function ProductDetails() {
   const Razorpay = useRazorpay();
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { token } = useSelector((state) => state.user);
+
   const [productDetails, setProductDetails] = useState({});
   const [loading, setLoading] = useState(true); // State to track loading status
   const [selectedImg, setSelectedImg] = useState("");
+  const [paymentLoading, setPaymentLoading] = useState(false); // State to track
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -36,6 +41,7 @@ export default function ProductDetails() {
   // ];
 
   const handlePayment = async () => {
+    setPaymentLoading(true);
     const data = {
       amount: Number(productDetails?.price),
     };
@@ -43,7 +49,7 @@ export default function ProductDetails() {
     try {
       const result = await DriverController.payment(data);
       console.log("result ", result);
-
+      setPaymentLoading(false);
       const options = {
         key: "rzp_test_DNDRtYFOQjaovg", // Replace with your actual Razorpay key ID
         amount: result.data.amount, // Amount in paise (1 INR = 100 paise)
@@ -70,8 +76,14 @@ export default function ProductDetails() {
       rzp.open();
     } catch (error) {
       console.error("Error during payment:", error);
+      setPaymentLoading(false);
       // Handle the error scenario here
     }
+  };
+
+  const handleLogin = () => {
+    alert("Please Login To Buy");
+    navigate("/login");
   };
 
   useEffect(() => {
@@ -162,8 +174,9 @@ export default function ProductDetails() {
               </span>
             </div>
             <GlobalButton
-              onClick={handlePayment}
+              onClick={token ? () => handlePayment() : () => handleLogin()}
               style={{ width: "170px", height: "40px", marginTop: "20px" }}
+              isLoading={paymentLoading}
             >
               Order Now
             </GlobalButton>

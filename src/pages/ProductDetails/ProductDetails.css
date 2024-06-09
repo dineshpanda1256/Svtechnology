@@ -9,6 +9,7 @@
   border-radius: 0.5rem;
   align-self: center;
   display: flex;
+  object-fit: contain;
 }
 #product-ratingContainer {
   display: flex;
@@ -29,6 +30,7 @@
   margin-right: 2rem;
   cursor: pointer;
   border: 1px solid gray;
+  object-fit: contain;
 }
 #smallProductImgContainer {
   display: flex;
