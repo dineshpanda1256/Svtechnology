@@ -5,9 +5,12 @@ import Utilis from "../../utils/Toast";
 import { useNavigate } from "react-router-dom";
 import GlobalButton from "../../components/GlobalButton/GlobalButton";
 import { DriverController } from "../../redux/controllers/DriverController";
+import { setToken, setUserInfo } from "../../redux/Slice/userSlice";
+import { useDispatch } from "react-redux";
 
 export default function AccountLogin() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -56,6 +59,8 @@ export default function AccountLogin() {
         email,
         password,
       });
+      dispatch(setToken(res?.data?.result?.token || ""));
+      dispatch(setUserInfo(res?.data?.result));
       Utilis.sToast(`Welcome ${res?.data?.result?.firstName || ""}`);
       setIsLoading(false);
     } catch (err) {

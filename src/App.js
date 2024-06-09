@@ -5,31 +5,33 @@ import Header from "./components/Header/Header";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Services from "./pages/Services/Services";
 import Contactus from "./pages/Contactus/Contactus";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import GoToTop from "./components/GoToTop/GoToTop";
 import Footer from "./components/Footer/Footer";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import AccountLogin from "./pages/AccountLogin/AccountLogin";
 import AccountRegister from "./pages/AccountRegister/AccountRegister";
+import AuthRoutes from "./routes/AuthRoutes/AuthRoutes";
 
 export default function App() {
   return (
     <>
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contactus />} />
-          <Route path="/productDetails/:id" element={<ProductDetails />} />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<Contactus />} />
+        <Route path="/productDetails/:id" element={<ProductDetails />} />
+
+        <Route element={<AuthRoutes />}>
           <Route path="/login" element={<AccountLogin />} />
           <Route path="/register" element={<AccountRegister />} />
-        </Routes>
-        <GoToTop />
-        <Footer />
-        <Toaster />
-      </Router>
+        </Route>
+      </Routes>
+      <GoToTop />
+      <Footer />
+      <Toaster />
     </>
   );
 }
