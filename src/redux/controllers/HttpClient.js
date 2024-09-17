@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:7000/api/v1/";
-// const API_BASE_URL = "https://svtechnology-backend.onrender.com/api/v1/";
+// const API_BASE_URL = "http://localhost:7000/api/v1/";
+const API_BASE_URL = "https://jharani-backend.onrender.com/api/v1/";
 
 const apiCaller = (uri, method = "GET", data = {}, Token, contentType) => {
   console.log(`Api Caller Data of ${uri}...`, data);

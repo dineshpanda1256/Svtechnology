@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import "./Footer.css";
 
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import CompanyLogo from "../../assets/img/logo/logo.svg";
 import MsgIcon from "../../assets/img/footer/mailicon.svg";
 import CallIcon from "../../assets/img/footer/callicon.svg";
@@ -13,6 +13,7 @@ import InstragramIcon from "../../assets/img/footer/instagramicon.svg";
 
 export default function Footer() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <Container fluid id="footer1" className="backgroundFooter">
@@ -79,7 +80,9 @@ export default function Footer() {
 
           <Col md={4}>
             <div id="explore-label">Explore</div>
-            <div id="explore-body-text">About Us</div>
+            <div id="explore-body-text" onClick={() => navigate("/about")}>
+              About Us
+            </div>
             <div id="explore-body-text">Services</div>
             <div id="explore-body-text">FAQ</div>
             <div id="explore-body-text">Contactus</div>

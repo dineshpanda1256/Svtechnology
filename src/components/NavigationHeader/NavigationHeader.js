@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { HiOutlineLogout } from "react-icons/hi";
 import { logout } from "../../redux/Slice/userSlice";
 import Utilis from "../../utils/Toast";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 export default function NavigationHeader() {
   const navigate = useNavigate();
@@ -34,21 +35,43 @@ export default function NavigationHeader() {
               <div id="navigation-text" onClick={() => navigate("/contact")}>
                 Contactus
               </div>
-              <div id="navigation-text" onClick={() => navigate("/about")}>
+              {/* <div id="navigation-text" onClick={() => navigate("/about")}>
                 About Us
-              </div>
+              </div> */}
+              {token && (
+                <div
+                  id="navigation-text"
+                  onClick={() => navigate(`orderHistory/${userInfo?._id}`)}
+                >
+                  Orders
+                </div>
+              )}
             </div>
             <div>
               {token ? (
-                <div id="profile-logout-div">
-                  <div id="profile-view-div">
-                    {userInfo?.firstName?.charAt(0)?.toUpperCase()}
+                <div>
+                  <div
+                    id="profile-logout-div"
+                    className="dropdown-container dropdown-button"
+                  >
+                    <div id="profile-view-div">
+                      {userInfo?.firstName?.charAt(0)?.toUpperCase()}
+                    </div>
+                    <HiOutlineLogout
+                      color="white"
+                      size={30}
+                      onClick={handleLogout}
+                    />
+                    {/* <div className="dropdown-content">
+                      <a
+                        onClick={() =>
+                          navigate(`orderHistory/${userInfo?._id}`)
+                        }
+                      >
+                        Your Orders
+                      </a>
+                    </div> */}
                   </div>
-                  <HiOutlineLogout
-                    color="white"
-                    size={30}
-                    onClick={handleLogout}
-                  />
                 </div>
               ) : (
                 <Button id="question-btn" onClick={() => navigate("/login")}>

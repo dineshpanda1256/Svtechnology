@@ -12,6 +12,7 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import AccountLogin from "./pages/AccountLogin/AccountLogin";
 import AccountRegister from "./pages/AccountRegister/AccountRegister";
 import AuthRoutes from "./routes/AuthRoutes/AuthRoutes";
+import OrderHistory from "./pages/OrderHistory/OrderHistory";
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contactus />} />
         <Route path="/productDetails/:id" element={<ProductDetails />} />
+        <Route path="/orderHistory/:id" element={<OrderHistory />} />
 
         <Route element={<AuthRoutes />}>
           <Route path="/login" element={<AccountLogin />} />

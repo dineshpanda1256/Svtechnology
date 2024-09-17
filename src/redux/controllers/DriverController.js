@@ -45,6 +45,21 @@ const register = (data) => {
   return HttpClient.apiCaller(url, "POST", data);
 };
 
+const createOrder = (data) => {
+  let url = "sv-order";
+  return HttpClient.apiCaller(url, "POST", data);
+};
+
+const verifyPayment = (data) => {
+  let url = "user/razorpay/payment-verification";
+  return HttpClient.apiCaller(url, "POST", data);
+};
+
+const getAllOrdersHistory = (items) => {
+  let url = `sv-orderHistory/${items?._id}`;
+  return HttpClient.apiCaller(url, "GET", null);
+};
+
 export const DriverController = {
   getAboutUs,
   getAllbanners,
@@ -55,4 +70,7 @@ export const DriverController = {
   getProductDetailsById,
   login,
   register,
+  createOrder,
+  verifyPayment,
+  getAllOrdersHistory,
 };

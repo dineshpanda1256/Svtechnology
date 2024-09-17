@@ -9,39 +9,126 @@ import useRazorpay from "react-razorpay";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 import { useSelector } from "react-redux";
+import OrderDetailsCanvas from "./components/OrderDetailsCanvas/OrderDetailsCanvas";
+import Utilis from "../../utils/Toast";
 
 export default function ProductDetails() {
   const Razorpay = useRazorpay();
   const { id } = useParams();
   const navigate = useNavigate();
-  const { token } = useSelector((state) => state.user);
-
+  const { token, userInfo } = useSelector((state) => state.user);
   const [productDetails, setProductDetails] = useState({});
   const [loading, setLoading] = useState(true); // State to track loading status
   const [selectedImg, setSelectedImg] = useState("");
   const [paymentLoading, setPaymentLoading] = useState(false); // State to track
+  const [address, setAddress] = useState("");
+  const [landMark, setLandMark] = useState("");
+  const [phone, setPhone] = useState("");
+  const [alternativePhone, setAlternativePhone] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [showFillOrderCanvas, setShowFillOrderCanvas] = useState(false);
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
+  const [district, setDistrict] = useState("");
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // const productImg = [
-  //   {
-  //     prdPhoto: "https://via.placeholder.com/150",
-  //   },
-  //   {
-  //     prdPhoto: "https://via.placeholder.com/150",
-  //   },
-  //   {
-  //     prdPhoto: "https://via.placeholder.com/150",
-  //   },
-  //   {
-  //     prdPhoto: "https://via.placeholder.com/150",
-  //   },
-  // ];
+  function GenerateOrderID(userID) {
+    // Generate a random alphanumeric string of a specified length
+    const generateRandomString = (length) => {
+      const characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let result = "";
+      const charactersLength = characters.length;
+      for (let i = 0; i < length; i++) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength)
+        );
+      }
+      return result;
+    };
 
-  const handlePayment = async () => {
-    setPaymentLoading(true);
+    const randomString = generateRandomString(8); // Generate an 8-character random string
+    const orderID = `${userID}-${randomString}`;
+    return orderID;
+  }
+
+  function isValid() {
+    if (!address) {
+      Utilis.eToast("Please enter your address.");
+      return false;
+    } else if (address?.length < 20) {
+      Utilis.eToast("Please enter a valid address.");
+      return false;
+    } else if (!landMark) {
+      Utilis.eToast("Please enter a landmark.");
+      return false;
+    } else if (!phone) {
+      Utilis.eToast("Please enter your phone number.");
+      return false;
+    } else if (phone.length !== 10) {
+      Utilis.eToast("Please enter a valid phone number.");
+      return false;
+    } else if (!alternativePhone) {
+      Utilis.eToast("Please enter your alternative phone number.");
+      return false;
+    } else if (alternativePhone.length !== 10) {
+      Utilis.eToast("Please enter a valid alternative phone number.");
+      return false;
+    } else if (!pincode) {
+      Utilis.eToast("Please enter a valid pincode.");
+      return false;
+    } else if (!state) {
+      Utilis.eToast("State information is missing. Please check your pincode.");
+      return false;
+    } else if (!district) {
+      Utilis.eToast(
+        "District information is missing. Please check your pincode."
+      );
+      return false;
+    } else if (!city) {
+      Utilis.eToast("City information is missing. Please check your pincode.");
+      return false;
+    }
+    return true;
+  }
+
+  const handleCreateOrder = async () => {
+    if (isValid()) {
+      setShowFillOrderCanvas(false);
+      try {
+        setPaymentLoading(true);
+        const generateRandomOrderID = await GenerateOrderID(userInfo?._id);
+        const data = {
+          product_id: id,
+          user_id: userInfo._id,
+          order_id: generateRandomOrderID,
+          price: Number(productDetails?.price),
+          address: address,
+          pincode: pincode,
+          landMark: landMark,
+          phone: phone,
+          alternativePhone: alternativePhone,
+          state: state,
+          city: city,
+          district: district,
+        };
+
+        console.log("creating order", data);
+        await DriverController.createOrder(data).then((res) => {
+          console.log("order created", res);
+          handlePayment(generateRandomOrderID);
+        });
+      } catch (e) {
+        console.error("order created", e);
+        setPaymentLoading(false);
+      }
+    }
+  };
+
+  const handlePayment = async (generateRandomOrderID) => {
     const data = {
       amount: Number(productDetails?.price),
     };
@@ -61,6 +148,12 @@ export default function ProductDetails() {
         handler: function (response) {
           console.log("razorpay res", response);
           // Handle the success scenario here
+          handleVerifyPayment(response, generateRandomOrderID);
+        },
+        modal: {
+          ondismiss: function () {
+            console.log("Checkout form closed");
+          },
         },
         prefill: {
           name: "Your Name",
@@ -78,6 +171,23 @@ export default function ProductDetails() {
       console.error("Error during payment:", error);
       setPaymentLoading(false);
       // Handle the error scenario here
+    }
+  };
+
+  const handleVerifyPayment = async (razorpayResponse, orderId) => {
+    try {
+      const data = {
+        ...razorpayResponse,
+        product_id: id,
+        user_id: userInfo?._id,
+        order_id: orderId,
+      };
+
+      console.log("getting", data);
+
+      await DriverController.verifyPayment(data);
+    } catch (error) {
+      console.error("err while getting verify payment", error);
     }
   };
 
@@ -112,6 +222,7 @@ export default function ProductDetails() {
     }
     return null;
   };
+
   return (
     <Container id="product-detail-container">
       {loading ? (
@@ -174,12 +285,36 @@ export default function ProductDetails() {
               </span>
             </div>
             <GlobalButton
-              onClick={token ? () => handlePayment() : () => handleLogin()}
+              onClick={
+                token ? () => setShowFillOrderCanvas(true) : () => handleLogin()
+              }
               style={{ width: "170px", height: "40px", marginTop: "20px" }}
               isLoading={paymentLoading}
             >
               Order Now
             </GlobalButton>
+            <OrderDetailsCanvas
+              show={showFillOrderCanvas}
+              onHide={() => setShowFillOrderCanvas(false)}
+              placement={"bottom"}
+              address={address}
+              setAddress={setAddress}
+              landMark={landMark}
+              setLandMark={setLandMark}
+              phone={phone}
+              setPhone={setPhone}
+              alternativePhone={alternativePhone}
+              setAlternativePhone={setAlternativePhone}
+              pincode={pincode}
+              setPincode={setPincode}
+              state={state}
+              setState={setState}
+              city={city}
+              setCity={setCity}
+              district={district}
+              setDistrict={setDistrict}
+              handleCreateOrder={() => handleCreateOrder()}
+            />
             <Specification productDetails={productDetails} />
           </Col>
         </Row>

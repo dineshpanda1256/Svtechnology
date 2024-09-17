@@ -21,6 +21,37 @@
   font-weight: 400;
   line-height: 140%;
 }
+.carousel .carousel-indicators button {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: #19408d;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-control-prev {
+  left: 45px;
+  background-color: #19408d;
+}
+
+.carousel-control-next {
+  right: 45px;
+  background-color: #19408d;
+}
 
 @media only screen and (max-width: 600px) {
   .carousel-image-container {
