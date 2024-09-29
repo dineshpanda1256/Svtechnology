@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer';
 import AboutUs from './pages/AboutUs/AboutUs';
 import Services from './pages/Services/Services';
 import Contactus from './pages/Contactus/Contactus';
+import RegisterData from './pages/Form/Form';
 
 export default function App() {
   return (
@@ -13,10 +14,12 @@ export default function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home/>}/>
+        {/* <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<AboutUs/>}/>
         <Route path="/services" element={<Services/>} />
-        <Route path="/contact" element={<Contactus/>} />
+        <Route path="/contact" element={<Contactus/>} /> */}
+
+        <Route path="/" element={<RegisterData/>}/>
       </Routes>
       <Footer/>
     </Router>
