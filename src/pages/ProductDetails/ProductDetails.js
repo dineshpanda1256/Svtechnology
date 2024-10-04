@@ -141,7 +141,7 @@ export default function ProductDetails() {
         key: "rzp_test_DNDRtYFOQjaovg", // Replace with your actual Razorpay key ID
         amount: result.data.amount, // Amount in paise (1 INR = 100 paise)
         currency: "INR",
-        name: "Jharanai",
+        name: "SvTechnology",
         description: "Payment",
         image: "https://github.com/razorpay",
         order_id: result.data.id,
@@ -186,6 +186,7 @@ export default function ProductDetails() {
       console.log("getting", data);
 
       await DriverController.verifyPayment(data);
+      navigate(`orderHistory/${userInfo?._id}`);
     } catch (error) {
       console.error("err while getting verify payment", error);
     }
