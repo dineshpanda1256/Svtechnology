@@ -1,0 +1,29 @@
+#order-card-container {
+  padding: 1rem;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin-top: 2rem;
+  font-family: "Raleway";
+}
+#order-text-label {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+#order-text-data {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-left: 5px;
+}
+#order-text-row {
+  display: flex;
+  flex-direction: row;
+}
+#order-image {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+}

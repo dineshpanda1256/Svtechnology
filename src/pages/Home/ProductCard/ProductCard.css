@@ -1,50 +1,98 @@
-#product1{
-    border: 3px solid black;
-    border-radius: 1rem;
-    box-shadow: 5px 5px 10px #cfcfcf;
-    
+#product1 {
+  border: 3px solid #f2f2f2;
+  border-radius: 0.8rem;
+  /* box-shadow: 8px 8px 9px #cfcfcf; */
+  position: relative;
 }
-#product2{
+#product1:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+  transition: all linear 1s;
+}
+#product2 {
+  height: 12rem;
+  width: 100%;
+  border-radius: 2rem;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
+  object-fit: contain;
+}
+#product3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  font-family: "AR One Sans";
+}
+#product4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  border-top-width: 1px solid white;
+  /* border: 2px solid #65CB55; */
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background: linear-gradient(to bottom, #153980 0%, #153980 100%);
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#product5 {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-top-left-radius: 0.6rem;
+  border-top-right-radius: 0.6rem;
+}
+@media only screen and (max-width: 600px) {
+  #product2 {
     height: 12rem;
     width: 100%;
     border-radius: 2rem;
     margin-bottom: 0.5rem;
-}
-#product3{
-    font-size: 1.3rem;
-    font-weight: bold;
-    color:white
-}
-#product4{
-    padding-left: 2rem;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    border-top-width: 1px solid white;
-    /* border: 2px solid #65CB55; */
-    border-bottom: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    background: linear-gradient(to bottom, #99fae6 0%, #009C80 100%);
-    border-bottom-left-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
-}
-#product5{
-    padding: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-@media only screen and (max-width: 600px) {
-    #product2{
-        height: 8rem;
-        width: 100%;
-        border-radius: 2rem;
-        margin-bottom: 0.5rem;
-    }
   }
-  #product6{
-    font-size: 0.9rem;
-    color:white
-  }
+}
+#product6 {
+  font-size: 0.9rem;
+  color: white;
+  font-family: "AR One Sans";
+}
+#product7 {
+  width: 6rem;
+  background: #25d857;
+  color: white;
+  text-align: center;
+  border-radius: 0.4rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+#product8 {
+  color: white;
+  font-family: "AR One Sans";
+  transition: all 0.2s ease-in;
+}
+#product8:hover {
+  color: white;
+  font-family: "AR One Sans";
+  font-weight: bolder;
+}
+#actual-price-text {
+  font-size: 1rem;
+  color: white;
+  font-family: "AR One Sans";
+}

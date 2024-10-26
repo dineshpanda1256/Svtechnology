@@ -1,18 +1,23 @@
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import "./Header.css";
 import Logo from "../../assets/image/header/Logo.png";
-import CompanyLogo from "../../assets/image/header/Logo.png";
-
+import CompanyLogo from "../../assets/img/logo/logo.svg";
+import MsgIcon from "../../assets/img/header/msgIcon.png";
+import CallIcon from "../../assets/img/header/callIcon.png";
 import { Button, Image } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
+import NavigationHeader from "../NavigationHeader/NavigationHeader";
+import TopHeader from "../TopHeader/TopHeader";
 
 function Header() {
   const location = useLocation();
   return (
-    <>
+    <div style={{ position: "relative", zIndex: 2 }}>
+      <TopHeader />
       {["md"].map((expand) => (
         <Navbar
           key={expand}
@@ -21,12 +26,9 @@ function Header() {
           variant="dark"
           collapseOnSelect="true"
         >
-          <Container fluid>
+          <Container>
             <Navbar.Brand as={Link} to={"/"} style={{ color: "white" }}>
-              <div id="LogoDiv">
-                <Image src={CompanyLogo} style={{ width: "5rem" }} />
-                <div id="LogoText">Admin Panel</div>
-              </div>
+              <Image src={CompanyLogo} style={{ width: "14rem" }} />
             </Navbar.Brand>
             <Navbar.Toggle
               aria-controls={`offcanvasNavbar-expand-${expand}`}
@@ -43,28 +45,46 @@ function Header() {
                   id={`offcanvasNavbarLabel-expand-${expand}`}
                   style={{ color: "black" }}
                 >
-                  <div
-                    style={{
-                      backgroundColor: "black",
-                      padding: "0.4rem",
-                      borderRadius: "0.2rem",
-                    }}
-                  >
-                    <Image src={CompanyLogo} style={{ width: "13rem" }} />
-                  </div>
+                  <Image src={CompanyLogo} style={{ width: "13rem" }} />
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body className="Header2">
                 <Nav
                   className="justify-content-end flex-grow-1 pe-3"
                   id="Header1"
-                ></Nav>
+                >
+                  <Nav.Link>
+                    <div id="Iconcontainer">
+                      <div>
+                        <Image src={MsgIcon} id="Iconimg" />
+                      </div>
+                      <div id="textcontainer">
+                        <div id="labeltxt">Mail Us</div>
+                        <div id="labelbodytxt">info@svtechnology.com</div>
+                      </div>
+                    </div>
+                  </Nav.Link>
+
+                  <Nav.Link>
+                    <div id="Iconcontainer">
+                      <div>
+                        <Image src={CallIcon} id="Iconimg" />
+                      </div>
+                      <div id="textcontainer">
+                        <div id="labeltxt">Call Us </div>
+                        <div id="labelbodytxt">+91 9322905948</div>
+                      </div>
+                    </div>
+                  </Nav.Link>
+                </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
         </Navbar>
       ))}
-    </>
+
+      <NavigationHeader />
+    </div>
   );
 }
 

@@ -1,11 +1,16 @@
-#about1{
-    color:#CF3A30;
-    font-family:'Raleway' ;
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 2rem;
+#about1 {
+  color: #f7990c;
+  font-family: "Raleway";
+  font-size: 2rem;
+  text-align: start;
+  margin-top: 2rem;
+  font-weight: bolder;
 }
-#about2{
-    text-align: center;
-    padding: 2rem;
+#about2 {
+  text-align: justify;
+  padding: 0.5rem;
+}
+#about3 {
+  display: flex;
+  justify-content: start;
 }

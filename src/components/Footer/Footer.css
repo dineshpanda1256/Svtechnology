@@ -1,188 +1,98 @@
-#footer1 {
-    padding: 2.5rem;
-    color: white;
-   font-family: "Raleway";
-   margin-top: 2rem;
-  }
-  #footer2 {
-    margin-top: 0.5rem;
-    cursor: pointer;
-   font-family: "Raleway";
-  }
-  #footer2:hover {
-    color: #ff5e14;
-    transition: all 1.3s ease;
-  }
-  #footer3 {
-    margin-top: 2rem;
-   font-family: "Raleway";
-    margin-left: 1rem;
-  }
-  #footer4 {
-   font-family: "Raleway";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 2rem;
-    line-height: 42px;
-    color: #ff5e14;
-  }
-  #footer6 {
-   font-family: "Raleway";
-    background-color: white;
-    color: black;
-    border-radius: 100%;
-    padding: 0.2rem;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  #footer6:hover {
-    background-color: #ff5e14;
-    transition: all 1.3s ease;
-  }
-  #footer5 {
-    display: flex;
-    gap: 0.7rem;
-    margin-left: -0.5rem;
+.backgroundFooter {
+  background-color: #1c2752;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  margin-top: 3rem;
+}
+#footerIconLabel-txt {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+}
+#Iconimg {
+  width: 50px;
+  height: 50px;
+}
+#footer-labelbodytxt {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+}
+#Iconcontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#textcontainer {
+  margin-left: 20px;
+}
+#line-div {
+  background-color: #4b557d;
+  height: 1px;
+  width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 2.3rem;
+}
+#company-description-txt {
+  color: white;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.9rem;
+  text-align: justify;
+  margin-bottom: 1.5rem;
+}
+#icon-col {
+  cursor: pointer;
+}
+
+#company-description-col {
+  border-right: 2px solid #4b557d;
+  padding-right: 3rem;
+}
+
+#explore-label {
+  color: white;
+  font-size: "Raleway";
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-left: 2rem;
+  margin-bottom: 0.7rem;
+}
+#explore-body-text {
+  color: white;
+  font-size: "Raleway";
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+#copyright-text {
+  text-align: center;
+  color: white;
+  font-family: "Raleway";
+  font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 700px) {
+  #Iconcontainer {
     margin-top: 1rem;
-   font-family: "Raleway";
   }
-  #footer7 {
-    width: 15rem;
-    height: 5.44rem;
-    font-family: "Raleway";
-    margin-bottom: 0.5rem;
-    border-radius: 3rem
+  #explore-label {
+    margin-left: 0rem;
+    margin-top: 3rem;
   }
-  #footer8 {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.7rem;
-    color: white;
-   font-family: "Raleway";
+  #explore-body-text {
+    margin-left: 0rem;
+    cursor: pointer;
   }
-  #footer9 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-   font-family: "Raleway";
-    z-index: 10;
+  #company-description-col {
+    border: 0px;
+    padding-right: 1rem;
   }
-  #footer6:hover {
-    color: #ff5e14;
-    transition: all 1.3s ease;
-  }
-  #footer10 {
-    text-decoration: none;
-    color: white;
-    margin-left: -0.5rem;
-   font-family: "Raleway";
-  }
-  #footer10:hover {
-    color: #ff5e14;
-    transition: all 1.3s ease;
-  }
-  #footer11 {
-    /* width: 10rem; */
-    width: 10rem;
-    /* height: auto; */
-  }
-  #footer15 {
-    width: max-content;
-    height: 25vh;
-    border-radius: 10%;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -1.3rem;
-  }
-  #footer12 {
-    color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.15rem;
-  }
-  #footer12:hover {
-    color: #ff5e14;
-    transition: all 1.3s ease;
-  }
-  
-  .backgroundFooter {
-    background-color: #000000;
-  }
-  
-  .backgroundGreenFooter {
-    background-color: #3a3a3a;
-  }
-  .greenfooterbelowdiv {
-    background-color: #838383;
-  }
-  .footerbelowdiv {
-    background-color: #252525;
-  }
-  #mailStoneDiv{
-    background: white;
-      border-radius: 4rem;
-      width: 17rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-top: 1rem;
-      padding-bottom: 0.3rem;
-      margin-left: -2rem;
-      margin-top: 0.8rem;
-  }
-  #footer13{
-    margin-top: 2.7rem;
-   font-family: "Raleway";
-    padding-left: 1rem;
-  }
-  #footer14{
-    margin-left: 1rem;
-  }
-  
-  @media only screen and (max-width: 600px) {
-    #mailStoneDiv{
-        margin-left: 0rem;
-        margin-top: 0rem;
-    }
-    #footer13{
-      margin-top: 2rem;
-     font-family: "Raleway";
-      padding-left: 0rem;
-    }
-    #footer3 {
-      margin-top: 2rem;
-     font-family: "Raleway";
-      margin-left: 0rem;
-    }
-    #footer14{
-      margin-left: 0rem;
-    }
-  }
-  @media only screen and (max-width: 900px) {
-    #mailStoneDiv{
-        margin-left: 0rem;
-        margin-top: 0rem;
-    }
-    #footer13{
-      margin-top: 2rem;
-     font-family: "Raleway";
-      padding-left: 0rem;
-    }
-    #footer3 {
-      margin-top: 2rem;
-     font-family: "Raleway";
-      margin-left: 0rem;
-    }
-    #footer14{
-      margin-left: 0rem;
-    }
-  }
+}
