@@ -70,7 +70,7 @@ export default function Home() {
     <>
       <Carosel />
       <Service serviceData={serviceData} />
-      <Product productData={productData} />
+      {/* <Product productData={productData} /> */}
       <div id="customer-say-label">What our Customer say</div>
       <CustomerFeedback />
     </>
