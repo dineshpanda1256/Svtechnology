@@ -64,8 +64,8 @@ export default function AccountLogin() {
       Utilis.sToast(`Welcome ${res?.data?.result?.firstName || ""}`);
       setIsLoading(false);
     } catch (err) {
-      console.error("error in login", err);
-      Utilis.eToast(err.erros || err.response.data.result);
+      // console.error("error in login", err);
+      Utilis.eToast(err.response.data.result || err.response.data.error.errors);
       setIsLoading(false);
     }
   };
