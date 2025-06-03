@@ -32,7 +32,7 @@ export default function Carosel() {
         <Loader />
       ) : (
         <Carousel fade id="ch_2" interval={SLIDE_INTERVAL}>
-          {images?.map((item) => (
+          {images?.filter(item => item._id !== "6664be9ca8b926b4560fbfc9").map((item) => (
             <Carousel.Item key={item.id}>
               {/* Add a unique key */}
               <div className="carousel-image-container">

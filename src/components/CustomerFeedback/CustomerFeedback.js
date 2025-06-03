@@ -3,6 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ReactStars from "react-rating-stars-component";
 import "./CustomerFeedback.css";
+import { FaUser } from "react-icons/fa";
 
 export default function CustomerFeedback() {
   const responsive = {
@@ -55,7 +56,7 @@ export default function CustomerFeedback() {
     >
       {feedback.map((item, index) => (
         <div key={index} className="feedbackCardContainer">
-          <img src={item.image} alt={`profile`} id="customerImage" />
+          <FaUser id="customerImage" />
           <h3 className="feedbackName">{item.name}</h3>
           <p className="feedbackMessage">{item.message.slice(0, 40)}</p>
           <div id="ratingContainer">
