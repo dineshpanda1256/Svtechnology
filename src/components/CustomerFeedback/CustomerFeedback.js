@@ -44,7 +44,18 @@ export default function CustomerFeedback() {
       rating: 4.5,
       image: "https://via.placeholder.com/150",
     },
-    // Add more feedback items as needed
+    {
+      name: "Ram Prasad",
+      message: "Greate Serive Experience.",
+      rating: 4.5,
+      image: "https://via.placeholder.com/150",
+    },
+    {
+      name: "Mohan Sahu",
+      message: "Quick Service. Greate Staff.",
+      rating: 4.5,
+      image: "https://via.placeholder.com/150",
+    },
   ];
 
   return (
@@ -58,7 +69,7 @@ export default function CustomerFeedback() {
         <div key={index} className="feedbackCardContainer">
           <FaUser id="customerImage" />
           <h3 className="feedbackName">{item.name}</h3>
-          <p className="feedbackMessage">{item.message.slice(0, 40)}</p>
+          <p className="feedbackMessage">{item.message}</p>
           <div id="ratingContainer">
             <ReactStars
               count={5}

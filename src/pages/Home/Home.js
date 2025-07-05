@@ -24,6 +24,7 @@ export default function Home() {
 
   const [productData, setProductData] = useState([]);
   const [serviceData, setServiceData] = useState([]);
+  const [isServiceLoading, setIsServiceLoading] = useState(true)
 
   const getAllProducts = async () => {
     try {
@@ -39,38 +40,40 @@ export default function Home() {
     try {
       const res = await DriverController.getAllServices();
       // console.log('all products.....', res.data.result)
-      setServiceData(res.data.result);
+      setServiceData(res.data.result ?? []);
+      setTimeout(() => setIsServiceLoading(false), 2000)
     } catch (error) {
       console.log(error);
-    }
+      setIsServiceLoading(true)
+    } 
   };
 
-  const data = [
-    {
-      image: "orange",
-      title: "Affordable Price",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting",
-    },
-    {
-      image: "blue",
-      title: "One on One Monitor",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting",
-    },
-    {
-      image: "orange",
-      title: "Affordable Price",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting",
-    },
-  ];
+  // const data = [
+  //   {
+  //     image: "orange",
+  //     title: "Affordable Price",
+  //     description:
+  //       "Lorem Ipsum is simply dummy text of the printing and typesetting",
+  //   },
+  //   {
+  //     image: "blue",
+  //     title: "One on One Monitor",
+  //     description:
+  //       "Lorem Ipsum is simply dummy text of the printing and typesetting",
+  //   },
+  //   {
+  //     image: "orange",
+  //     title: "Affordable Price",
+  //     description:
+  //       "Lorem Ipsum is simply dummy text of the printing and typesetting",
+  //   },
+  // ];
 
   return (
     <>
       <Carosel />
-      <Service serviceData={serviceData} />
-      {/* <Product productData={productData} /> */}
+      <Service serviceData={serviceData} isLoading={isServiceLoading} />
+      <Product productData={productData} />
       <div id="customer-say-label">What our Customer say</div>
       <CustomerFeedback />
     </>

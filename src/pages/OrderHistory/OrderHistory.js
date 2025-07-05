@@ -40,7 +40,7 @@ function OrderHistory() {
             </Col>
           ))
         ) : (
-          <p>No order history available.</p> // Show this message if no orders found
+          <div className="noOrderFound">No order history available.</div> // Show this message if no orders found
         )}
       </Row>
     </Container>

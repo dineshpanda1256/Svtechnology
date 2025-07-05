@@ -25,8 +25,7 @@ export default function Specification({ productDetails }) {
             <div id="Spec-Label">{category}</div>
             {categorizedData[category].map((item) => (
               <div id="Spec-Text-Div" key={item._id}>
-                <div id="Spec-Text">{item.key} :</div>
-                <div id="Spec-Text">{item.value}</div>
+                <div id="Spec-Text">{item.key} : {item.value}</div>
               </div>
             ))}
           </div>

@@ -286,13 +286,15 @@ export default function ProductDetails() {
               </span>
             </div>
             <GlobalButton
+            disabled={true}
               onClick={
                 token ? () => setShowFillOrderCanvas(true) : () => handleLogin()
               }
               style={{ width: "170px", height: "40px", marginTop: "20px" }}
               isLoading={paymentLoading}
             >
-              Order Now
+              {/* Order Now */}
+              Coming Soon...
             </GlobalButton>
             <OrderDetailsCanvas
               show={showFillOrderCanvas}

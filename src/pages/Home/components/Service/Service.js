@@ -1,8 +1,9 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./Service.css";
+import SkeletonLoader from "../../../../components/Skeleton/Skeleton";
 
-export default function Service({ serviceData }) {
+export default function Service({ serviceData,isLoading }) {
   return (
     <Container fluid id="service-container">
       <Row>
@@ -10,7 +11,8 @@ export default function Service({ serviceData }) {
       </Row>
       <Row>
         <Col />
-        {serviceData?.map((item) => (
+        {isLoading && [1,2,3].map(() => <Col md={3} xs={12}><SkeletonLoader height={295} borderRadius={"1rem"} width={"84%"} /></Col>)}
+        {!isLoading && serviceData?.map((item) => (
           <Col md={3} xs={12}>
             <div id="service-card">
               <img src={item?.service_image} id="image-div" />

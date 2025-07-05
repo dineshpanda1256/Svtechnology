@@ -13,6 +13,7 @@ import AccountLogin from "./pages/AccountLogin/AccountLogin";
 import AccountRegister from "./pages/AccountRegister/AccountRegister";
 import AuthRoutes from "./routes/AuthRoutes/AuthRoutes";
 import OrderHistory from "./pages/OrderHistory/OrderHistory";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function App() {
   return (
