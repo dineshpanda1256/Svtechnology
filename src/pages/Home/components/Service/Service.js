@@ -11,9 +11,9 @@ export default function Service({ serviceData,isLoading }) {
       </Row>
       <Row>
         <Col/>
-        <Col md={9}>
+        <Col md={10}>
         <Row>
-        {isLoading && [1,2,3].map(() => <Col md={3} xs={12}><SkeletonLoader height={295} borderRadius={"1rem"} width={"94%"} /></Col>)}
+        {isLoading && [1,2,3].map(() => <Col md={4} xs={12}><SkeletonLoader height={295} borderRadius={"1rem"} width={"94%"} /></Col>)}
         {!isLoading && serviceData?.map((item) => (
           <Col md={4} xs={12} className="mb-5">
             <div id="service-card">
