@@ -60,6 +60,11 @@ const getAllOrdersHistory = (items) => {
   return HttpClient.apiCaller(url, "GET", null);
 };
 
+const getContactDetails = () => {
+   let url = "sv-contactdetails";
+  return HttpClient.apiCaller(url, "get", null);
+}
+
 export const DriverController = {
   getAboutUs,
   getAllbanners,
@@ -73,4 +78,5 @@ export const DriverController = {
   createOrder,
   verifyPayment,
   getAllOrdersHistory,
+  getContactDetails
 };

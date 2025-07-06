@@ -10,10 +10,12 @@ import LocationIcon from "../../assets/img/footer/locationicon.svg";
 import FacebookIcon from "../../assets/img/footer/facebookicon.svg";
 import TweeterIcon from "../../assets/img/footer/tweetericon.svg";
 import InstragramIcon from "../../assets/img/footer/instagramicon.svg";
+import { useSelector } from "react-redux";
 
 export default function Footer() {
   const location = useLocation();
   const navigate = useNavigate();
+  const {companyInfo} = useSelector(state => state.user)
 
   return (
     <Container fluid id="footer1" className="backgroundFooter">
@@ -29,7 +31,7 @@ export default function Footer() {
               </div>
               <div id="textcontainer">
                 <div id="footerIconLabel-txt">Mail Us</div>
-                <div id="footer-labelbodytxt">svtechnology2019@gmail.com</div>
+                <div id="footer-labelbodytxt">{companyInfo?.email ?? ""}</div>
               </div>
             </div>
           </Col>
@@ -40,7 +42,7 @@ export default function Footer() {
               </div>
               <div id="textcontainer">
                 <div id="footerIconLabel-txt">Call Us</div>
-                <div id="footer-labelbodytxt">+91 9322905948</div>
+                <div id="footer-labelbodytxt">+91 {companyInfo?.contactnumber ?? ""}</div>
               </div>
             </div>
           </Col>
@@ -51,7 +53,7 @@ export default function Footer() {
               </div>
               <div id="textcontainer">
                 <div id="footerIconLabel-txt">Location</div>
-                <div id="footer-labelbodytxt">Maharashtra</div>
+                <div id="footer-labelbodytxt">{companyInfo?.state ?? ""}</div>
               </div>
             </div>
           </Col>
@@ -61,8 +63,7 @@ export default function Footer() {
         <Row>
           <Col md={6} id="company-description-col">
             <div id="company-description-txt">
-              Denouncing pleasure and praising pain was born and I will givg you
-              a coghmplete acchount of the system, and expound the actual
+              Our mission is to exceed the expectations of our clients by delivering superior UPS products and services that cater to their unique needs. We are dedicated to fostering long-term partnerships built on trust, integrity, and reliability.
             </div>
             <Row>
               <Col id="icon-col">
@@ -83,9 +84,9 @@ export default function Footer() {
             <div id="explore-body-text" onClick={() => navigate("/about")}>
               About Us
             </div>
-            <div id="explore-body-text">Services</div>
-            <div id="explore-body-text">FAQ</div>
-            <div id="explore-body-text">Contactus</div>
+            <div id="explore-body-text"  onClick={() => navigate("/services")}>Services</div>
+            {/* <div id="explore-body-text">FAQ</div> */}
+            <div id="explore-body-text" onClick={() => navigate("/contact")}>Contactus</div>
           </Col>
           <Col md={3}></Col>
         </Row>

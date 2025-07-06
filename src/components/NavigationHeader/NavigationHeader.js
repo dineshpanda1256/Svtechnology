@@ -26,13 +26,13 @@ export default function NavigationHeader() {
         <Col id="nav-head-col">
           <div id="nav-head-div">
             <div id="navigation-div">
-              <div id="navigation-text" onClick={() => navigate("/")}>
+              <div id="navigation-text" onClick={() => navigate("/")} title="Home">
                 Home
               </div>
-              <div id="navigation-text" onClick={() => navigate("/services")}>
+              <div id="navigation-text" onClick={() => navigate("/services")} title="Services">
                 Services
               </div>
-              <div id="navigation-text" onClick={() => navigate("/contact")}>
+              <div id="navigation-text" onClick={() => navigate("/contact")} title="Contactus">
                 Contactus
               </div>
               {/* <div id="navigation-text" onClick={() => navigate("/about")}>
@@ -41,9 +41,11 @@ export default function NavigationHeader() {
               {token && (
                 <div
                   id="navigation-text"
-                  onClick={() => navigate(`orderHistory/${userInfo?._id}`)}
+                  // onClick={() => navigate(`orderHistory/${userInfo?._id}`)}
+                  onClick={()=> navigate("/about")}
+                  title="About Us"
                 >
-                  Orders
+                  About Us
                 </div>
               )}
             </div>
@@ -53,6 +55,7 @@ export default function NavigationHeader() {
                   <div
                     id="profile-logout-div"
                     className="dropdown-container dropdown-button"
+                    title={userInfo?.firstName}
                   >
                     <div id="profile-view-div">
                       {userInfo?.firstName?.charAt(0)?.toUpperCase()}

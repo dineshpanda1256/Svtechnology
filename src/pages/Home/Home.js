@@ -14,37 +14,44 @@ import { DriverController } from "../../redux/controllers/DriverController";
 import Service from "./components/Service/Service";
 import Product from "./components/Product/Product";
 import CustomerFeedback from "../../components/CustomerFeedback/CustomerFeedback";
+import Utilis from "../../utils/Toast";
+import { useDispatch } from "react-redux";
+import { setCompanyInfo } from "../../redux/Slice/userSlice";
 
 export default function Home() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-     const fn = async () => {
-    try {
-      const [productsRes, servicesRes] = await Promise.all([
-        DriverController.getAllProducts(),
-        DriverController.getAllServices()
-      ]);
-
-      setProductData(productsRes?.data?.result?.slice(0, 9));
-      setServiceData(servicesRes?.data?.result ?? []);
-      setIsLoading(false)
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      setIsLoading(true);
-    }
-  };
-  fn();
-  }, []);
-
+  const dispatch = useDispatch()
   const [productData, setProductData] = useState([]);
   const [serviceData, setServiceData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const fn = async () => {
+      try {
+        const [productsRes, servicesRes, contactdetails] = await Promise.all([
+          DriverController.getAllProducts(),
+          DriverController.getAllServices(),
+          DriverController.getContactDetails()
+        ]);
+
+        setProductData(productsRes?.data?.result?.slice(0, 9));
+        setServiceData(servicesRes?.data?.result ?? []);
+        dispatch(setCompanyInfo(contactdetails?.data?.result))
+        setIsLoading(false)
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setIsLoading(true);
+      }
+    };
+    fn();
+  }, []);
 
   return (
     <>
       <Carosel />
       <Service serviceData={serviceData} isLoading={isLoading} />
-      <Product productData={productData} isLoading={isLoading}/>
+      <Product productData={productData} isLoading={isLoading} />
       <div id="customer-say-label">What our Customer say</div>
       <CustomerFeedback />
     </>

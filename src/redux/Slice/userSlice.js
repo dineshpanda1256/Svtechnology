@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const initialState = {
   userInfo: {},
   token: "",
+  companyInfo: {},
 };
 
 const userSlice = createSlice({
@@ -15,6 +16,9 @@ const userSlice = createSlice({
     setToken(state, action) {
       state.token = action.payload;
     },
+    setCompanyInfo(state, action) {
+      state.companyInfo = action.payload;
+    },
     logout(state, action) {
       state.userInfo = {};
       state.token = "";
@@ -22,5 +26,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { logout, setToken, setUserInfo } = userSlice.actions;
+export const { logout, setToken, setUserInfo,setCompanyInfo } = userSlice.actions;
 export default userSlice.reducer;

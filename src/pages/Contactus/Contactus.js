@@ -4,9 +4,11 @@ import { Col, Container, Form, Row, Spinner } from "react-bootstrap";
 import { DriverController } from "../../redux/controllers/DriverController";
 import { useState } from "react";
 import Utilis from "../../utils/Toast";
+import { useSelector } from "react-redux";
 var validator = require("email-validator");
 
 export default function Contactus() {
+  const {companyInfo} = useSelector(state => state.user)
   useEffect(()=>{
       window.scrollTo(0,0);
   },[])
@@ -79,13 +81,12 @@ export default function Contactus() {
           <div id="HeadingText">Our office</div>
           <div id="AddressLabel">Address:</div>
           <div>
-            Krishna Kanhaiya society, Sector 8, Airoli, Navi Mumbai, Maharashtra
-            400708
+           {companyInfo?.address ?? ""}
           </div>
           <div id="AddressLabel">Phone Number:</div>
-          <div>(+91) 9322905948</div>
+          <div>(+91) {companyInfo?.contactnumber ?? ""}</div>
           <div id="AddressLabel">Email Adress:</div>
-          <div>svtechnology2019@gmail.com</div>
+          <div>{companyInfo?.email ?? ""}</div>
         </Col>
         <Col md={5} lg={5} xs={12}  id="phoneView1">
           <Form.Group className="mb-3">

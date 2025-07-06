@@ -12,9 +12,11 @@ import { Button, Image } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import NavigationHeader from "../NavigationHeader/NavigationHeader";
 import TopHeader from "../TopHeader/TopHeader";
+import { useSelector } from "react-redux";
 
 function Header() {
   const location = useLocation();
+  const {companyInfo} = useSelector(state => state.user)
   return (
     <div style={{ position: "relative", zIndex: 2 }}>
       <TopHeader />
@@ -27,7 +29,7 @@ function Header() {
           collapseOnSelect="true"
         >
           <Container>
-            <Navbar.Brand as={Link} to={"/"} style={{ color: "white" }}>
+            <Navbar.Brand as={Link} to={"/"} style={{ color: "white" }} title="SV Technology">
               <Image src={CompanyLogo} style={{ width: "14rem" }} />
             </Navbar.Brand>
             <Navbar.Toggle
@@ -55,24 +57,24 @@ function Header() {
                 >
                   <Nav.Link>
                     <div id="Iconcontainer">
-                      <div>
+                      <div title="Mail Us">
                         <Image src={MsgIcon} id="Iconimg" />
                       </div>
                       <div id="textcontainer">
-                        <div id="labeltxt">Mail Us</div>
-                        <div id="labelbodytxt">svtechnology2019@gmail.com</div>
+                        <div id="labeltxt" >Mail Us</div>
+                        <div id="labelbodytxt">{companyInfo?.email ?? ""}</div>
                       </div>
                     </div>
                   </Nav.Link>
 
                   <Nav.Link>
                     <div id="Iconcontainer">
-                      <div>
+                      <div title="Call Us">
                         <Image src={CallIcon} id="Iconimg" />
                       </div>
                       <div id="textcontainer">
-                        <div id="labeltxt">Call Us </div>
-                        <div id="labelbodytxt">+91 9322905948</div>
+                        <div id="labeltxt" >Call Us </div>
+                        <div id="labelbodytxt">+91 {companyInfo?.contactnumber ?? ""}</div>
                       </div>
                     </div>
                   </Nav.Link>
