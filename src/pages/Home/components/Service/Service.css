@@ -61,6 +61,16 @@ body, html {
   font-size: 15px;
   color: gray;
   text-align: start;
+  overflow: scroll;
+  height: 13rem;
+}
+#service-card-desp::-webkit-scrollbar{
+  display: none;
+  transition: 1s all ease-in-out;
+}
+#service-card-desp:hover::-webkit-scrollbar{
+transition: 1s all ease-in;
+display: block !important;
 }
 
 /* Responsive adjustments for smaller screens */
