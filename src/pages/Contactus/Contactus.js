@@ -85,7 +85,7 @@ export default function Contactus() {
           <div id="AddressLabel">Phone Number:</div>
           <div>(+91) 9322905948</div>
           <div id="AddressLabel">Email Adress:</div>
-          <div>info@svtechnology.com</div>
+          <div>svtechnology2019@gmail.com</div>
         </Col>
         <Col md={5} lg={5} xs={12}  id="phoneView1">
           <Form.Group className="mb-3">

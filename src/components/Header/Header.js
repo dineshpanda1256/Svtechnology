@@ -60,7 +60,7 @@ function Header() {
                       </div>
                       <div id="textcontainer">
                         <div id="labeltxt">Mail Us</div>
-                        <div id="labelbodytxt">info@svtechnology.com</div>
+                        <div id="labelbodytxt">svtechnology2019@gmail.com</div>
                       </div>
                     </div>
                   </Nav.Link>

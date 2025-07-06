@@ -29,7 +29,7 @@ export default function Footer() {
               </div>
               <div id="textcontainer">
                 <div id="footerIconLabel-txt">Mail Us</div>
-                <div id="footer-labelbodytxt">Info@Example.com</div>
+                <div id="footer-labelbodytxt">svtechnology2019@gmail.com</div>
               </div>
             </div>
           </Col>

@@ -11,7 +11,7 @@ export default function Service({ serviceData,isLoading }) {
       </Row>
       <Row>
         <Col />
-        {isLoading && [1,2,3].map(() => <Col md={3} xs={12}><SkeletonLoader height={295} borderRadius={"1rem"} width={"84%"} /></Col>)}
+        {isLoading && [1,2,3].map(() => <Col md={3} xs={12}><SkeletonLoader height={295} borderRadius={"1rem"} width={"94%"} /></Col>)}
         {!isLoading && serviceData?.map((item) => (
           <Col md={3} xs={12}>
             <div id="service-card">

@@ -18,62 +18,33 @@ import CustomerFeedback from "../../components/CustomerFeedback/CustomerFeedback
 export default function Home() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    getAllProducts();
-    getAllServices();
+     const fn = async () => {
+    try {
+      const [productsRes, servicesRes] = await Promise.all([
+        DriverController.getAllProducts(),
+        DriverController.getAllServices()
+      ]);
+
+      setProductData(productsRes?.data?.result?.slice(0, 9));
+      setServiceData(servicesRes?.data?.result ?? []);
+      setIsLoading(false)
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      setIsLoading(true);
+    }
+  };
+  fn();
   }, []);
 
   const [productData, setProductData] = useState([]);
   const [serviceData, setServiceData] = useState([]);
-  const [isServiceLoading, setIsServiceLoading] = useState(true)
-
-  const getAllProducts = async () => {
-    try {
-      const res = await DriverController.getAllProducts();
-      // console.log('all products.....', res.data.result)
-      setProductData(res?.data?.result?.slice(0, 9));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getAllServices = async () => {
-    try {
-      const res = await DriverController.getAllServices();
-      // console.log('all products.....', res.data.result)
-      setServiceData(res.data.result ?? []);
-      setTimeout(() => setIsServiceLoading(false), 2000)
-    } catch (error) {
-      console.log(error);
-      setIsServiceLoading(true)
-    } 
-  };
-
-  // const data = [
-  //   {
-  //     image: "orange",
-  //     title: "Affordable Price",
-  //     description:
-  //       "Lorem Ipsum is simply dummy text of the printing and typesetting",
-  //   },
-  //   {
-  //     image: "blue",
-  //     title: "One on One Monitor",
-  //     description:
-  //       "Lorem Ipsum is simply dummy text of the printing and typesetting",
-  //   },
-  //   {
-  //     image: "orange",
-  //     title: "Affordable Price",
-  //     description:
-  //       "Lorem Ipsum is simply dummy text of the printing and typesetting",
-  //   },
-  // ];
+  const [isLoading, setIsLoading] = useState(true)
 
   return (
     <>
       <Carosel />
-      <Service serviceData={serviceData} isLoading={isServiceLoading} />
-      <Product productData={productData} />
+      <Service serviceData={serviceData} isLoading={isLoading} />
+      <Product productData={productData} isLoading={isLoading}/>
       <div id="customer-say-label">What our Customer say</div>
       <CustomerFeedback />
     </>
