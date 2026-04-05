@@ -17,6 +17,7 @@ import CustomerFeedback from "../../components/CustomerFeedback/CustomerFeedback
 import Utilis from "../../utils/Toast";
 import { useDispatch } from "react-redux";
 import { setCompanyInfo } from "../../redux/Slice/userSlice";
+import SEO from "../../components/SEO/SEO";
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -49,6 +50,10 @@ export default function Home() {
 
   return (
     <>
+      <SEO 
+        title="Home | Sv Technology - UPS Installation & Power Solutions" 
+        description="Welcome to Sv Technology. We specialize in seamless UPS installation, comprehensive maintenance contracts, and emergency repair services." 
+      />
       <Carosel />
       <Service serviceData={serviceData} isLoading={isLoading} />
       <Product productData={productData} isLoading={isLoading} />

@@ -2,5 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://thesvtech.shop/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://thesvtech.shop/about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thesvtech.shop/services</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thesvtech.shop/contact</loc>
+    <priority>0.8</priority>
   </url>
 </urlset>
