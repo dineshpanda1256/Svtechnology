@@ -3,7 +3,7 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import "./Footer.css";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import CompanyLogo from "../../assets/img/logo/logo.svg";
+import CompanyLogo from "../../assets/img/logo/logo2.svg";
 import MsgIcon from "../../assets/img/footer/mailicon.svg";
 import CallIcon from "../../assets/img/footer/callicon.svg";
 import LocationIcon from "../../assets/img/footer/locationicon.svg";

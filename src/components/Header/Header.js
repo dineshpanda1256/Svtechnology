@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import "./Header.css";
 import Logo from "../../assets/image/header/Logo.png";
-import CompanyLogo from "../../assets/img/logo/logo.svg";
+import CompanyLogo from "../../assets/img/logo/logo2.svg";
 import MsgIcon from "../../assets/img/header/msgIcon.png";
 import CallIcon from "../../assets/img/header/callIcon.png";
 import { Button, Image } from "react-bootstrap";
@@ -30,7 +30,7 @@ function Header() {
         >
           <Container>
             <Navbar.Brand as={Link} to={"/"} style={{ color: "white" }} title="SV Technology">
-              <Image src={CompanyLogo} style={{ width: "14rem" }} />
+              <Image src={CompanyLogo} style={{ width: "15.6rem" }} />
             </Navbar.Brand>
             <Navbar.Toggle
               aria-controls={`offcanvasNavbar-expand-${expand}`}

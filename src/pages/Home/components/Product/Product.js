@@ -9,16 +9,16 @@ export default function Product({ productData,isLoading=true }) {
     <Container fluid>
       <Row id="product-container">
         <div id="product-heading-text">Products</div>
-        <Col md={1} />
-        <Col md={10}>
+        <Col md={0} lg={1} />
+        <Col lg={10} md={12} sm={12} >
           <Row>
-            {isLoading && [1,2,3,4].map(() => <Col md={3} xs={12}><SkeletonLoader height={295} borderRadius={"1rem"} width={"84%"} /></Col>)}
+            {isLoading && [1,2,3,4].map(() => <Col lg={4}  md={3} sm={6} xs={12}><SkeletonLoader height={295} borderRadius={"1rem"} width={"84%"} /></Col>)}
             {!isLoading && productData.map((item) => (
-              <Col md={3} id="product-col">
+              <Col  lg={4}  md={3} sm={6}  xs={12} id="product-col">
                 <ProductCard item={item} />
               </Col>
             ))}
-            <Col md={1} />
+            <Col md={0} lg={1} />
           </Row>
         </Col>
       </Row>

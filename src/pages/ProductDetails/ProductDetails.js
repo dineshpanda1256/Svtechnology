@@ -278,23 +278,23 @@ export default function ProductDetails() {
             <div id="desc-text">
               {productDetails?.productDescription || "N/A"}
             </div>
-            <div id="price-text">
+            {/* <div id="price-text">
               ₹{productDetails?.price || "N/A"}
               <del id="mrp-text">₹{calculateMRP(productDetails)}</del>{" "}
               <span id="offer-percent-text">
                 {productDetails?.discount} off
               </span>
-            </div>
+            </div> */}
             <GlobalButton
-            disabled={true}
+            // disabled={true}
               onClick={
-                token ? () => setShowFillOrderCanvas(true) : () => handleLogin()
+               () => navigate('/contact')
               }
               style={{ width: "170px", height: "40px", marginTop: "20px" }}
               isLoading={paymentLoading}
             >
               {/* Order Now */}
-              Coming Soon...
+              Contact us
             </GlobalButton>
             <OrderDetailsCanvas
               show={showFillOrderCanvas}

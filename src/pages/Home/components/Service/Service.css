@@ -71,13 +71,14 @@ body, html {
 
 
 /* Responsive adjustments for smaller screens */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   #service-card {
     background-color: #ffffff;
     border-radius: 1rem;
     padding: 15px;
     width: 100%;
     margin-bottom: 2rem;
+    min-height: 40vh;
   }
   #service-container {
     padding-bottom: 60px;
